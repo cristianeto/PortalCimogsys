@@ -1,0 +1,14 @@
+body{
+	border-top: 1.5em solid $azul;
+	@include desde-hasta(tablet,web){
+		border-top: 2em solid $azul;
+	}
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@include desde(web){
+		height: 100vh;
+		min-height: 100%;
+		max-height: 100%;
+	}
+}

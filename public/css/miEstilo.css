@@ -1,0 +1,269 @@
+
+ul>li>a:hover{
+	color: rgb(140,140,140);
+	font-size: 1em;
+}
+
+.iniciarSesion > main {
+  background: url(../img/fondo-usuario.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  color:rgb(100,100,100);
+  font-family: Calibri;
+
+}
+.iniciarSesion>main.ed-container{
+	margin-top: 1em;
+	margin-bottom: 1em;
+	height: 100vh;
+}
+
+.ed-item.cuadro{
+			background: rgb(228,228,228);
+			border:3px solid rgb(109,109,109);
+			border-radius: 10px;
+			font-size: 1em;
+			padding-bottom: 2em;
+		}
+		.titulo{
+			//background:rgb(66,83,117);
+			background: -webkit-linear-gradient(top, rgb(111,124,150) 50%, rgb(66,83,117) 50%);
+			background: -moz-linear-gradient(top, rgb(111,124,150) 50%, rgb(66,83,117) 50%);
+			background: -o-linear-background(top, rgb(111,124,150) 50%, rgb(66,83,117) 50%);
+			background: -ms-linear-background(top, rgb(111,124,150) 50%, rgb(66,83,117) 50%);
+			border:1px solid rgb(111,124,150);
+			border-bottom-right-radius: 0.5em;
+			border-bottom-left-radius: 0.5em;
+			color:#fff;
+			font-size: 1.2em;
+			padding-top: 0.2em;
+			padding-bottom: 0.2em;
+		}
+		.titulo>h3{
+			color: #fff;
+		}
+		.iniciarSesion img.foto{
+			margin-top: 1em;
+			margin-bottom: 1em;
+			height: 3.9em;
+			width: 3.9em;
+			border:3px solid #425375;
+			border-radius: 100px;
+		}
+form > input{
+	margin:0.5em;
+}
+
+
+form>input[type=text], input[type=password] {
+	border:1px solid rgb(151,151,151);
+	border-radius: 4px;
+	height: 2em;
+	width: 25em;
+	font-size: 0.8em;
+}
+
+form>input{
+	color:#0000;
+	padding:5px;
+}
+
+.iniciarSesion .olvido{
+	font-size: 12px;
+}
+.btnIniciar{
+	border:1px solid rgb(67,119,146);
+	border-radius: 4px;
+	background: rgb(67,119,146);
+	text-transform: uppercase;
+	color: #fff;
+}
+.iniciarSesion .btnIniciar{
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+	
+}
+
+.btnLogin{
+
+}
+.adminMisionVision>header.ed-container, .bannerTop{
+  	font-family: Arial;
+  	font-style:italic;
+
+}
+.adminMisionVision{
+	font-style: italic;
+}
+
+header.ed-container.full.cross-center {
+	height: 2.8em;
+	padding-left: 4em;
+}
+
+.logoBlanco{
+	height: 3.5em;
+	margin-top: 2.9;
+	margin-left:4em;
+}
+
+.bannerTop {
+  background: #2e4e77;
+  color:#fff;
+}
+.bannerTop>.main-start{
+	margin-top:0.3em;
+	margin-bottom:0.3em;
+
+}
+header.ed-container{
+  background: #e6e6e6;
+}
+header.ed-container > .ed-item.tipoUsuario{
+	text-transform: uppercase;
+	font-weight: bold;
+	padding-left: 7em;
+	font-size: 1em;
+}
+
+
+.adminMisionVision img.fotoSesion{
+	//margin-top: 1em;
+	margin-right: 3em;
+	height: 2.2em;
+	width: 2.2em;
+	border:3px solid #425375;
+	border-radius: 100px;
+}
+
+.cerrar{
+	color:white;
+}
+.cerrarSesion{
+	text-shadow:0.1em 0.1em black;
+	font-size: 1.2em;
+	padding-right: 4em;
+}
+.cerrarSesion:hover{
+	cursor: pointer;
+	//font-size: 1.215em;
+	text-decoration: underline;
+}
+main.ed-container > .lateral{
+	background: #2e4e77;
+	padding-right: 2em;
+	min-height: 100vh;
+}
+.bienvenido{
+	color:#fff;
+	text-transform: uppercase;
+	font-style: italic;
+	font-weight: bold;
+	margin-top: 2.5em;
+	padding-left: 2.5em;
+	background: #2e4e77;
+
+}
+.menuLateral{
+	margin-top: 3.15em;
+	padding-left: 3em;
+	font-size: 0.8em;
+	color: #0000;
+}
+  a.menu-lateral-activo{
+	color:rgb(67,119,146);
+	//background: yellow;
+}
+.menuLateral> .ed-item{
+	padding-top:0.3em ;
+	padding-bottom:0.3em;
+	background: #fff;
+	border-bottom:1px solid #2e4e77;
+	border-right:none;
+	border-bottom-left-radius:0.5em;
+	border-top-left-radius: 0.5em; 
+	color: #0000;
+	text-transform: uppercase;
+}
+.iconoMenuLateral{
+	padding-top: 0.2em;
+	padding-right: 0.3em;
+	height: 1.3em;
+}
+.menuCabecera{
+	background: rgb(67,119,146);
+}
+.iconoMenuCabecera{
+	height: 5em;
+	//width: 70%;
+	margin-top: 0.7em;
+	margin-bottom: 0.7em;
+	//border:1px solid rgb(217,228,233);
+	background: rgb(217,228,233);
+	border-radius: 10px;
+	text-align: center;
+	padding: 0.7em;
+}
+.menu-cabecera-activo{
+	background: rgb(161,187,201);
+}
+.iconoMenuCabecera>a>i{
+	display: block;
+}
+.iconoMenuCabecera>a>small{
+	//color: yellow;
+	font-size: 0.7em;
+}
+.iconoMenuCabecera>a:hover{
+	color: #2e4e77;
+	font-size: 1.1em;
+	height: 5.1em;
+}
+
+.tituloPagina > h4{
+	color: #437792;
+	text-transform: uppercase;
+	//border-bottom: 2px solid ;
+	text-decoration: underline;
+}
+
+.formulario{
+	display: block;
+}
+
+.labelCampo{
+	display: block;
+	text-transform: uppercase;
+}
+
+textarea{
+	border: 3px solid #cacaca;
+	margin-left: 6em;
+	border-radius: 4px;
+	resize:none;
+	font-size: 0.8em;
+}
+
+input[type=text]{
+	border:1px solid #cacaca;
+	border-radius: 5px;
+	background: #f1f1f1;
+}
+input[type=file]{
+	margin-left: 6em;
+}
+
+
+.btnCRUD{
+	padding: 4px;
+	vertical-align: text-bottom;
+	
+	border-radius: 4px;
+	background: #cacaca;
+	text-transform: uppercase;
+	color: #0000;
+}
+hr{
+	color: #0000;
+}
