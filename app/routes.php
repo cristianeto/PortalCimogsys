@@ -32,13 +32,15 @@ Route::get('/misionVision',array('as'=>'misionVision', 'uses'=>'MisionVisionCont
 //Página Objetivos
 Route::get('/objetivos',array('as'=>'objetivos', 'uses'=>'ObjetivosController@visualizarObjetivos'));
 //Página Líneas Investigación 
-Route::get('/lineasInvestigacion',array('as'=>'lineasInvestigacion','uses'=>'LineaInvestigacionController@visualizarLineas'));
+Route::get('/lineasInvestigacion',array('as'=>'lineasInvestigacion','uses'=>'LineasInvestigacionController@visualizarLineas'));
 //Página Quienes Somos
 Route::get('/quienesSomos',array('as'=>'quienesSomos','uses'=>'QuienesSomosController@visualizarQuienesSomos'));
 //Página Proyectos
 Route::get('/proyectos',array('as'=>'proyectos','uses'=>'ProyectosController@visualizarProyectos'));
 //Página Contactos
 Route::get('/contactos',array('as'=>'contactos','uses'=>'ContactosController@visualizarContactos'));
+//Página Noticias
+Route::get('/noticias',array('as'=>'noticias','uses'=>'NoticiaController@visualizarNoticias'));
 //Página Iniciar Sesión
 Route::get('/iniciarSesion',array('as'=>'iniciarSesion','uses'=>'UserController@visualizarIniciarSesion'));
 Route::post('/login',['uses'=>'AuthController@login','before'=>'guest']);

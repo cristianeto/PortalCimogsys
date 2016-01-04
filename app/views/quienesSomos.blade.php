@@ -19,6 +19,7 @@
         <li><a href="{{ URL::Route('proyectos') }}">Proyectos</a></li>
         <li><a href="{{ URL::Route('quienesSomos') }}">¿Quiénes Somos?</a></li>
         <li><a href="{{URL::Route('contactos')}}">El Equipo</a></li>
+        <li><a href="{{URL::Route('noticias')}}">Noticias</a></li>
       </ul>
     </div>
   </header>

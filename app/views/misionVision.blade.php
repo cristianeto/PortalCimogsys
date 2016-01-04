@@ -6,8 +6,8 @@
  Inicio
 @stop
 @section('body')
-@parent
 <body class="misionVision">
+@parent
 @section('header')
   <header class="ed-container full">
     <div class="ed-item web-30 tablet-35 movil-30 cross-center"><a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/headerLogo.png', 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a></div>
@@ -24,6 +24,7 @@
         <li><a href="{{ URL::Route('proyectos') }}">Proyectos</a></li>
         <li><a href="{{ URL::Route('quienesSomos') }}">¿Quiénes Somos?</a></li>
         <li><a href="{{URL::Route('contactos')}}">El Equipo</a></li>
+        <li><a href="{{URL::Route('noticias')}}">Noticias</a></li>
       </ul>
     </div>
   </header>
@@ -42,6 +43,7 @@
     </article>
   </main>
   @stop
+  <script src="js/script.js"></script>
   @section('footer')
     @parent
   @stop

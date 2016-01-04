@@ -6,8 +6,8 @@
  Inicio
 @stop
 @section('body')
-@parent
 <body class="home">
+@parent
   @section('header')
     <header class="ed-container full">
       <div class="ed-item web-30 tablet-35 movil-30 cross-center">
@@ -26,7 +26,7 @@
           <li><a href="{{ URL::Route('proyectos') }}">Proyectos</a></li>
           <li><a href="{{ URL::Route('quienesSomos') }}">¿Quiénes Somos?</a></li>
           <li><a href="{{URL::Route('contactos')}}">El Equipo</a></li>
-          <li><a href="#">Noticias</a></li>
+          <li><a href="{{URL::Route('noticias')}}">Noticias</a></li>
         </ul>
       </div>
     </header>
