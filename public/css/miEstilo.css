@@ -1,7 +1,6 @@
 
 ul>li>a:hover{
 	color: rgb(140,140,140);
-	font-size: 1em;
 }
 
 .iniciarSesion > main {
@@ -59,8 +58,8 @@ form > input{
 form>input[type=text], input[type=password] {
 	border:1px solid rgb(151,151,151);
 	border-radius: 4px;
-	height: 2em;
-	width: 25em;
+	//height: 2em;
+	//width: 25em;
 	font-size: 0.8em;
 }
 
@@ -217,7 +216,7 @@ main.ed-container > .lateral{
 }
 .iconoMenuCabecera>a:hover{
 	color: #2e4e77;
-	font-size: 1.1em;
+	//font-size: 1.1em;
 	height: 5.1em;
 }
 

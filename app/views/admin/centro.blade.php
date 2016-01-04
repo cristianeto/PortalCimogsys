@@ -38,10 +38,10 @@
  		<div class="ed-item movil-75 no-padding">
  			<div class="ed-container movil main-center menuCabecera">
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="{{URL::Route('admCentro')}}"><i class="fa fa-building-o fa-3x"></i><small>El Centro</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-users fa-3x"></i><small>Redes Sociales</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admRedesSociales')}}"><i class="fa fa-users fa-3x"></i><small>Redes Sociales</small></a></div></div>
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admAreas')}}"><i class="fa fa-user fa-3x"></i><small>Área Gestión</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-files-o fa-3x"></i><small>Proyectos</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-newspaper-o fa-3x"></i><small>Noticias</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admProyectos')}}"><i class="fa fa-files-o fa-3x"></i><small>Proyectos</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admNoticias')}}"><i class="fa fa-newspaper-o fa-3x"></i><small>Noticias</small></a></div></div>
  			</div>
  			<div class="ed-container movil ">
  				<div class="ed-item movil">
@@ -54,10 +54,10 @@
 							<div class="ed-item main-start">
 					{{ Form::open(array('url'=>'/pruebas/actualizarCentro','files'=>'true','class'=>'ed-container')) }} 
 						<p>
-							<span> {{ Form::text('id_centro', $centro->id_centro, array('readonly')) }} </span>
+							<span> {{ Form::hidden('id_centro', $centro->id_centro, array('readonly')) }} </span>
 							{{ Form::text('nombre_centro',$centro->nombre_centro) }}
 							{{ Form::file('logo_centro') }}
-							<img src='{{ asset("img/$centro->logo_centro") }}' alt="">
+							<img style="width:90px;" src='{{ asset("img/$centro->logo_centro") }}' alt="">
 							{{ Form::text('descripcion_centro',$centro->descripcion_centro) }}
 							{{ Form::text('mision_centro',$centro->mision_centro) }}
 							{{ Form::text('vision_centro',$centro->vision_centro) }}
@@ -67,7 +67,7 @@
 							{{ Form::text('objetivo_general_centro',$centro->objetivo_general_centro) }}
 							{{ Form::text('quienes_somos_centro',$centro->quienes_somos_centro) }}
 							{{ Form::file('img_centro') }}
-							<img src='{{ asset("img/$centro->img_centro") }}' alt="">
+							<img style="width:90px;" src='{{ asset("img/$centro->img_centro") }}' alt="">
 						</p>
 						&nbsp; {{ Form::submit('Modificar') }}
 					{{ Form::close() }}

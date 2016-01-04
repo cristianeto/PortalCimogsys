@@ -55,4 +55,28 @@ class ObjetivosController  extends BaseController{
 			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válido');
 		}
 	}
+
+	public function actualizarObjetivoEspecifico(){
+
+		$response=0;
+
+		$id = e(Input::get('id_objetivos'));
+		$centro = e(Input::get('centro_objetivos'));
+		$descripcion = e(Input::get('descripcion_objetivos'));
+
+		$response = Centro::buscar_centro($centro);
+
+		if(count($response)!=0){
+			$response = 0;
+			$response = Objetivos::actualizar_objetivos($id,$descripcion,$centro);
+			if(count($response) == 1){ 
+				return Redirect::to(URL::previous())->with('mensaje','Objetivo Actualizado Correctamente');
+			}else{
+				return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
+			}
+		}else{
+			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válidoooo!');
+		}
+		
+	}
 }

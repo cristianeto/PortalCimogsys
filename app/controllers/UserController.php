@@ -199,4 +199,25 @@ class UserController extends BaseController {
         }
         return View::make("user/reset", $data)->withCentro($centro);
     }
+
+    public function visualizarAdminUsuarios(){
+        $response = 0;
+        $response = Centro::buscar_centro(3);
+        if(count($response)!=0){
+            $areas = AreaGestion::where('centro_area_gestion',3)->lists('nombre_area_gestion','id_area_gestion'); 
+            //$areas = AreaGestion::listar_area_gestion(3,$centro); 
+            if(count($areas)!=0){
+                $tipos= TipoUsuario::lists('descripcion_tipo_usuario', 'id_tipo_usuario');
+                if(count($tipos)!=0){
+                    return View::make('admin.usuarios')->with('usuarios',User::listar_usuarios(3))->withAreas($areas)->withTipos($tipos);
+                }else{
+                    return View::make('admin.usuarios')->with('error', 'No existen tipos de usuario');
+                }
+            }else{
+                return View::make('admin.usuarios')->with('error','No existen áreas de gestión');
+            }       
+        }else{
+            return View::make('admin.usuarios')->with('error','No existe un centro de investigacion para ingresar proyectos');
+        }
+    }
 }

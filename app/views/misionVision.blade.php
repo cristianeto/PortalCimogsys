@@ -1,9 +1,14 @@
 @extends('plantilla.plantilla')
-
-@section('titulo')
-  misiónVisión
+@section('metas')
+@parent
 @stop
+@section('titulo')
+ Inicio
+@stop
+@section('body')
+@parent
 <body class="misionVision">
+@section('header')
   <header class="ed-container full">
     <div class="ed-item web-30 tablet-35 movil-30 cross-center"><a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/headerLogo.png', 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a></div>
     <div class="ed-item web-70 tablet-65 movil-70 main-end cross-center">
@@ -22,6 +27,8 @@
       </ul>
     </div>
   </header>
+  @stop
+  @section('main')
   <main class="ed-container full">			
     <article id="mision" style="background-image: url('img/mainFondoMision.png')" class="ed-item">
       <div class="noticia"><span>Misión</span>
@@ -34,4 +41,9 @@
       </div>
     </article>
   </main>
+  @stop
+  @section('footer')
+    @parent
+  @stop
 </body>
+@stop

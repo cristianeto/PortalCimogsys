@@ -57,6 +57,7 @@ Route::post('/admin/actualizarMisionVision',array('as'=>'admin/actualizarMisionV
 Route::get('/admin/objetivos',array('as'=>'admObjetivos','uses'=>'ObjetivosController@visualizarAdminObjetivos'));
 Route::post('/admin/actualizarObjetivoGeneral',array('as'=>'admActualizarObjetivoG','uses'=>'ObjetivosController@actualizarObjetivoGeneral'));
 Route::post('/admin/guardarObjetivoEspecifico',array('as'=>'admGuardarObjetivoE','uses'=>'ObjetivosController@guardarObjetivoEspecifico'));
+Route::post('/admin/actualizarObjetivoEspecifico',array('as'=>'admActualizarObjetivoE','uses'=>'ObjetivosController@actualizarObjetivoEspecifico'));
 Route::post('/admin/eliminarObjetivoEspecifico',array('as'=>'admEliminarObjetivoE','uses'=>'ObjetivosController@eliminarObjetivoEspecifico'));
 //beneficiarios	
 Route::get('/admin/beneficiarios',array('as'=>'admBeneficiarios','uses'=>'BeneficiariosController@visualizarAdminBeneficiarios'));
@@ -66,6 +67,10 @@ Route::get('/admin/lineasInvestigacion',array('as'=>'admLineas','uses'=>'LineasI
 Route::get('/admin/redesSociales',array('as'=>'admRedesSociales','uses'=>'RedesSocialesController@visualizarAdminRedes'));
 //areas gestion	
 Route::get('/admin/areasGestion',array('as'=>'admAreas','uses'=>'AreaGestionController@visualizarAdminAreas'));
+//usuarios
+ Route::get('/admin/usuarios',array('as'=>'admUsuarios','uses'=>'UserController@visualizarAdminUsuarios'));
+//informes
+ Route::get('/admin/informes',array('as'=>'admInformes','uses'=>'InformesController@visualizarAdminInformes'));
 //proyectos	
 Route::get('/admin/proyectos',array('as'=>'admProyectos','uses'=>'ProyectosController@visualizarAdminProyectos'));
 //noticias	

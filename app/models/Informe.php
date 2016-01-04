@@ -80,4 +80,30 @@ class Informe extends Eloquent
 		}
 		return $response;
 	}
+
+	public static function listar_informes_todos($opcion){
+		switch ($opcion) {
+			case 1:
+				//listar todos 
+				$response = DB::table('informe')
+							->get();
+				break;
+			case 2:
+				//listar todos ascendente 
+				$response = DB::table('informe')
+							->orderBy('id_informe','asc')
+							->get();
+				break;
+			case 3:
+				//listar todos descendente
+				$response = DB::table('informe')
+							->orderBy('id_informe','desc')
+							->get();
+				break;
+			default :
+				$response = -1;
+				break;
+		}
+		return $response;
+	}	
 }

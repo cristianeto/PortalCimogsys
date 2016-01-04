@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  @section('metas')
 	<!--meta etiquetas-->
   	<meta charset="UTF-8"/>
   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -34,9 +35,11 @@
   	<meta name="twitter:description" content="Centro de investigación en modelos de Gestión y Sistemas Informáticos"/>
   	<meta name="twitter:creator" content="@autor"/>
   	<meta name="twitter:image:src" content="img/headerLogo.png"/>
-
+    @yield('metas')
+  @show
+  
 	<title> @yield('titulo') | CIMOGSYS</title>
-	@yield('metas')
+	
 	@section('estilos')
     {{ HTML::style('css/estilos.css'); }}
     {{ HTML::style('css/miEstilo.css'); }}
@@ -51,32 +54,32 @@
 	@yield('header')
 	@yield('main')
 	@section('footer')
-	<footer class="ed-container full">
-    	<div class="logos ed-item web-25 tablet-100 cross-center">
-      		<div class="ed-container">
-        		<div class="ed-item web-1-3 movil-1-3"><a href="http://www.espoch.edu.ec" target="blank"><img src="img/footerEspoch.png" alt="Espoch" class="cross-center"/></a></div>
-        		<div class="ed-item web-1-3 movil-1-3"><a href="http://fade.espoch.edu.ec" target="blank"><img src="img/footerFade.png" alt="Espoch" class="cross-center"/></a></div>
-        		<div class="ed-item web-1-3 movil-1-3"><a href="http://fie.espoch.edu.ec" target="blank"><img src="img/footerFie.png" alt="Espoch" class="cross-center"/></a></div>
-      		</div>
-    	</div>
-    	<div class="informacion ed-item web-70 tablet-95 cross-center">
-      		<div class="ed-container">
-        		<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
-          			<p>{{ $centro->descripcion_centro}}</p>
+  	<footer class="ed-container full">
+      	<div class="logos ed-item web-25 tablet-100 cross-center">
+        		<div class="ed-container">
+          		<div class="ed-item web-1-3 movil-1-3"><a href="http://www.espoch.edu.ec" target="blank"><img src="img/footerEspoch.png" alt="Espoch" class="cross-center"/></a></div>
+          		<div class="ed-item web-1-3 movil-1-3"><a href="http://fade.espoch.edu.ec" target="blank"><img src="img/footerFade.png" alt="Espoch" class="cross-center"/></a></div>
+          		<div class="ed-item web-1-3 movil-1-3"><a href="http://fie.espoch.edu.ec" target="blank"><img src="img/footerFie.png" alt="Espoch" class="cross-center"/></a></div>
         		</div>
-        		<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
-          			<p>Dirección: {{ $centro->direccion_centro }} </p>
-          			<p>TELF:{{ $centro->telefono_centro }}</p>
-          			<p>Código Postal: {{$centro->codigo_postal_centro}}</p>
+      	</div>
+      	<div class="informacion ed-item web-70 tablet-95 cross-center">
+        		<div class="ed-container">
+          		<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
+            			<p>{{ $centro->descripcion_centro}}</p>
+          		</div>
+          		<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
+            			<p>Dirección: {{ $centro->direccion_centro }} </p>
+            			<p>TELF:{{ $centro->telefono_centro }}</p>
+            			<p>Código Postal: {{$centro->codigo_postal_centro}}</p>
+          		</div>
+          		<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
+            			<p>Términos de Uso | Políticas de Privacidad</p>
+            			<p>Acerca de | Créditos | Acceso | <a href="{{URL::Route('iniciarSesion')}}">Iniciar Sesión</a> </p>
+          		</div>
         		</div>
-        		<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
-          			<p>Términos de Uso | Políticas de Privacidad</p>
-          			<p>Acerca de | Créditos | Acceso | <a href="{{URL::Route('iniciarSesion')}}">Iniciar Sesión</a> </p>
-        		</div>
-      		</div>
-    	</div>
-    	<div class="redes ed-item web-5 tablet-5 main-center"><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerFacebook.png" alt=""/></a><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerTwitter.png" alt=""/></a><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerYoutube.png" alt=""/></a></div>
-  	</footer>
+      	</div>
+      	<div class="redes ed-item web-5 tablet-5 main-center"><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerFacebook.png" alt=""/></a><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerTwitter.png" alt=""/></a><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerYoutube.png" alt=""/></a></div>
+    	</footer>
 	@show
 @show
 </html>

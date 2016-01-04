@@ -38,54 +38,72 @@
  		<div class="ed-item movil-75 no-padding">
  			<div class="ed-container movil main-center menuCabecera">
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="{{URL::Route('admCentro')}}"><i class="fa fa-building-o fa-3x"></i><small>El Centro</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-users fa-3x"></i><small>Redes Sociales</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admRedesSociales')}}"><i class="fa fa-users fa-3x"></i><small>Redes Sociales</small></a></div></div>
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admAreas')}}"><i class="fa fa-user fa-3x"></i><small>Área Gestión</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-files-o fa-3x"></i><small>Proyectos</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-newspaper-o fa-3x"></i><small>Noticias</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admProyectos')}}"><i class="fa fa-files-o fa-3x"></i><small>Proyectos</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admNoticias')}}"><i class="fa fa-newspaper-o fa-3x"></i><small>Noticias</small></a></div></div>
  			</div>
- 			<div class="ed-container movil ">
- 				<div class="ed-item movil">
- 					<div class="ed-container padding-3 ">
- 						<div class="ed-item movil-2-3 tituloPagina"><h4>Beneficiarios</h4></div>
- 						<!--<div class="ed-item movil-50 main-center cross-center">
- 							{{Form::text('buscar')}}&nbsp{{Form::submit('Buscar', array('class' => 'btnIniciar'))}}
- 						</div>-->
- 					</div>
- 					<div class="ed-container movil-2-3 no-padding main-center">
-						
- 						@if($centro!=null)
- 						
-								{{ Form::open(array('url'=>'/admin/actualizarMisionVision','files'=>'true','class'=>'')) }} 
-									<div class="ed-item no-padding movil ">
-									
-									{{ Form::hidden('id_centro', $centro->id_centro, array('readonly')) }}
-									
-									{{ Form::label('mision','Misión', array('class' => 'ed-item movil main-start no-padding labelCampo'))}}
-									{{ Form::textarea('mision_centro',$centro->mision_centro, ['size' => '90x5'],['class' => 'ed-item']) }}
-									</div>
-									<div class="ed-item no-padding movil ">
-										{{ Form::hidden('id_centro', $centro->id_centro, array('readonly')) }}
-										{{ Form::label('vision','Visión', array('class' => 'ed-item movil main-start no-padding labelCampo'))}}
-										{{ Form::textarea('vision_centro',$centro->vision_centro, ['size' => '90x5'],['class' => 'ed-item']) }}
-									</div>
-									<div class="ed-item no-padding movil ">
-									{{ Form::label('vision','Quiénes Somos', array('class' => 'labelCampo'))}}
-									{{ Form::textarea('quienes_somos_centro',$centro->quienes_somos_centro, ['size' => '90x5'], ['class' => 'ed-item inputTexto']) }}
-									{{ Form::file('img_centro', array('class'=>'labelCampo')) }}
-									<img class="movil-1-3 main-center" src='{{ asset("img/$centro->img_centro") }}' alt="">
-									</div>
-									<div class="ed-item no-padding movil main-end">
-										{{ Form::submit('Actualizar', array('class'=>'btnIniciar')) }}	
-									</div>
-									
-								{{ Form::close() }}
- 						@else
- 						<div class="ed-item main-start">
+ 			<div class="ed-container main-center movil ">
+ 				<div class="ed-item base movil padding-3 tituloPagina">
+ 					<h4>Beneficiarios</h4>
+ 				</div>
+				<div class="ed-item base movil-2-3  padding-3 ">
+					@if($centro!=null)
+						<div class="ed-container">
+							{{ Form::open(array('url'=>'/pruebas/guardarBeneficiarios')) }}
+					<label for="nombre_beneficiario">Nombre</label>
+					{{ Form::text('nombre_beneficiarios') }}<br>
+					<label for="descripcion_beneficiarios">Descripción</label>
+					{{ Form::textarea('descripcion_beneficiarios') }}
+					<span> {{ Form::hidden('centro_beneficiarios', $centro->id_centro, array('readonly')) }} </span>
+					<br>
+					{{ Form::submit('Guardar',array('class'=>'main-end submit btnIniciar')) }}
+				{{ Form::close() }}
+						</div> 						
+					@else
+						<div class="ed-container main-start">
 							<p>No existe el centro de investigación registrado.</p>
 						</div>
  						@endif
  					</div>
+ 				
+ 			</div>
+ 			<hr class="margin-3">
+ 			<div class="ed-container main-center movil ">
+ 				<div class="ed-item  main-center base movil padding-3 tituloPagina">
+ 					<h4>registros</h4>
  				</div>
+				<div class="ed-item base movil-2-3  padding-3 ">
+					@if($centro!=null)
+						@if(count($beneficiarios)>0)
+					@foreach($beneficiarios as $beneficiario)   
+					<div class="ed-item main-start">
+						{{ Form::open(array('url'=>'/pruebas/actualizarBeneficiarios','class'=>'ed-container')) }}
+							<p>
+								{{ Form::hidden('id_beneficiarios', $beneficiario->id_beneficiarios, array('readonly')) }} 
+								{{ Form::text('nombre_beneficiarios', $beneficiario->nombre_beneficiarios) }}
+								{{ Form::text('descripcion_beneficiarios', $beneficiario->descripcion_beneficiarios) }}
+								{{ Form::hidden('centro_beneficiarios', $centro->id_centro, array('readonly')) }} 
+							</p>
+							&nbsp; {{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}
+						{{ Form::close() }}
+						{{ Form::open(array('url'=>'/pruebas/eliminarBeneficiarios','class'=>'ed-container')) }}
+							{{ Form::text('id_beneficiarios', $beneficiario->id_beneficiarios, array('readonly','style'=>'display:none')) }}
+							&nbsp; {{ Form::submit('Eliminar', array('class'=>'btnIniciar')) }}
+						{{ Form::close() }}
+					</div>
+					@endforeach
+				@else
+					<div class="ed-item main-start">
+						<p>no hay beneficiarios en el centro de investigación</p>
+					</div>
+				@endif
+					@else
+						<div class="ed-container main-start">
+							<p>No existe el centro de investigación registrado.</p>
+						</div>
+ 						@endif
+ 					</div>
  				
  			</div>
  		</div>

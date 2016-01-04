@@ -30,7 +30,7 @@
  			<h4 class="bienvenido">Bienvenido</h4>
  			<ul class="ed-container cross-start menuLateral">
  				<li class="ed-item main-start"><a href="{{URL::Route('admUsuarios')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Usuarios</a></li>
- 				<li class="ed-item main-start"><a href="{{URL::Route('admInformes')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Informes</a></li>
+ 				<li class="ed-item main-start"><a class="menu-lateral-activo" href="{{URL::Route('admInformes')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Informes</a></li>
  			</ul>
  		</div>
  		<div class="ed-item movil-75 no-padding">
@@ -44,58 +44,50 @@
  			<div class="ed-container movil ">
  				<div class="ed-item movil">
  					<div class="ed-container padding-3 ">
- 						<div class="ed-item movil-2-3 tituloPagina"><h4>Áreas de Gestión</h4></div>
+ 						<div class="ed-item movil-2-3 tituloPagina"><h4>Áreas de Gestión: Informes</h4></div>
  						<!--<div class="ed-item movil-50 main-center cross-center">
  							{{Form::text('buscar')}}&nbsp{{Form::submit('Buscar', array('class' => 'btnIniciar'))}}
  						</div>-->
  					</div>
  					<div class="ed-container movil-2-3 no-padding main-center">
-		 				{{ Form::open(array('url'=>'/pruebas/guardarAreaGestion')) }}
-							<label for="nombre_area_gestion">Nombre</label>
-							{{ Form::text('nombre_area_gestion') }}<br>
-							<label for="descripcion_area_gestion">Descripción</label>
-							{{ Form::text('descripcion_area_gestion') }}<br>
-							<label for="color_area_gestion">Color</label>
-							{{ Form::text('color_area_gestion') }}
-							<span> {{ Form::hidden('centro_area_gestion', $centro->id_centro, array('readonly')) }} </span>
-							<br>
-							{{ Form::submit('Agregar',array('class'=>'submit')) }}
-						{{ Form::close() }}
+					 		
  					</div>
- 					<hr>
-
  					<div class="ed-container movil-2-3 no-padding main-center">
-						
- 						@if($centro!=null)
- 								@if(count($areas)>0)
-					@foreach($areas as $area)   
-					<div class="ed-item main-start">
-						{{ Form::open(array('url'=>'/pruebas/actualizarAreaGestion','class'=>'ed-container')) }}
-							<p>
-								{{ Form::hidden('id_area_gestion', $area->id_area_gestion, array('readonly')) }} 
-								{{ Form::text('nombre_area_gestion', $area->nombre_area_gestion) }}
-								{{ Form::text('descripcion_area_gestion', $area->descripcion_area_gestion) }}
-								{{ Form::text('color_area_gestion', $area->color_area_gestion) }}
-								{{ Form::hidden('centro_area_gestion', $centro->id_centro, array('readonly')) }} 
-							</p>
-							&nbsp; {{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}
-						{{ Form::close() }}
-						{{ Form::open(array('url'=>'/pruebas/eliminarAreaGestion','class'=>'ed-container')) }}
-							{{ Form::hidden('id_area_gestion', $area->id_area_gestion, array('readonly','style'=>'display:none')) }}
-							&nbsp; {{ Form::submit('Eliminar', array('class'=>'btnIniciar')) }}
-						{{ Form::close() }}
-					</div>
-					@endforeach
-				@else
-					<div class="ed-item main-start">
-						<p>no hay beneficiarios en el centro de investigación</p>
-					</div>
-				@endif
- 						@else
- 						<div class="ed-item main-start">
-							<p>No existe el centro de investigación registrado.</p>
-						</div>
- 						@endif
+						@if(count($informes)>0)
+							@foreach($informes as $informe)
+							<div class="ed-item main-start">
+								{{ Form::open(array('url'=>'/pruebas/actualizarInforme','files'=>'true','class'=>'ed-container')) }}
+									<p>
+										<!--{{ Form::label('id_informe','Código')}}-->
+										{{ Form::hidden('id_informe', $informe->id_informe, array('readonly')) }}
+										{{ Form::label('codigo_informe','Identificador')}}
+										{{ Form::text('codigo_informe', $informe->codigo_informe, array('readonly')) }}
+										{{ Form::label('descripcion_informe','Descripción')}}
+										{{ Form::text('descripcion_informe', $informe->descripcion_informe) }}
+										{{ Form::label('fecha_entrega_informe','FechaEntrega')}}
+										{{ Form::text('fecha_entrega_informe', $informe->fecha_entrega_informe) }}
+										{{ Form::label('fecha_modificacion_informe','FechaModificacion')}}
+										{{ Form::text('fecha_modificacion_informe', $informe->fecha_modificacion_informe) }}
+										{{ Form::label('archivo_informe','Archivo')}}
+										{{ link_to_asset('img/informe/'.$informe->archivo_informe, $title='Informe archivo'.$informe->id_informe, $attributes = array('download'=>$informe->archivo_informe));}}
+										{{ Form::file('archivo_informe') }}<br>
+										<!--{{ Form::label('usuario','Usuario')}}-->
+										{{ Form::hidden('usuario', $informe->usuario_id_usuario, array('readonly')) }}
+										&nbsp; {{ Form::submit('Modificar',array('class'=>'btnIniciar')) }}
+									</p>
+
+								{{ Form::close() }}
+								{{ Form::open(array('url'=>'/pruebas/eliminarInforme','class'=>'ed-container')) }}
+								{{ Form::hidden('id_informe', $informe->id_informe) }}
+									&nbsp; {{ Form::submit('Eliminar',array('class'=>'btnIniciar')) }}
+								{{ Form::close() }}
+							</div>
+							@endforeach
+						@else
+							<div class="ed-item main-start">
+								<p>No existen informes para este usuario</p>
+							</div>
+						@endif		 				
  					</div>
  				</div>
  				

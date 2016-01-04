@@ -306,7 +306,7 @@ class TestController  extends BaseController{
 				return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
 			}
 		}else{
-			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válido');
+			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válido 2');
 		}
 		
 	}
@@ -316,7 +316,7 @@ class TestController  extends BaseController{
 		$id = e(Input::get('id_objetivos'));
 		$response = Objetivos::eliminar_objetivos($id);
 		if($response == 1){ 
-			return Redirect::to(URL::previous())->with('mensaje','Objetivo Eliminado Insertado Correctamente');
+			return Redirect::to(URL::previous())->with('mensaje','Objetivo Eliminado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
 		}

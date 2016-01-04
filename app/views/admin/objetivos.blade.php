@@ -38,10 +38,10 @@
  		<div class="ed-item movil-75 no-padding">
  			<div class="ed-container movil main-center menuCabecera">
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="{{URL::Route('admCentro')}}"><i class="fa fa-building-o fa-3x"></i><small>El Centro</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-users fa-3x"></i><small>Redes Sociales</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admRedesSociales')}}"><i class="fa fa-users fa-3x"></i><small>Redes Sociales</small></a></div></div>
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admAreas')}}"><i class="fa fa-user fa-3x"></i><small>Área Gestión</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-files-o fa-3x"></i><small>Proyectos</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-newspaper-o fa-3x"></i><small>Noticias</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admProyectos')}}"><i class="fa fa-files-o fa-3x"></i><small>Proyectos</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admNoticias')}}"><i class="fa fa-newspaper-o fa-3x"></i><small>Noticias</small></a></div></div>
  			</div>
  			<div class="ed-container movil ">
  				<div class="ed-item movil">
@@ -67,7 +67,7 @@
 							{{ Form::open(array('url'=>'/admin/guardarObjetivoEspecifico','files'=>'true','class'=>'ed-container')) }} 
 								<div class="ed-item no-padding movil main-end">
 								{{ Form::hidden('id_centro', $centro->id_centro, array('readonly')) }}
-								{{ Form::textarea('descripcion_objetivos',	'Ingrese un objetivo específico', ['size' => '90x2'],['class' => 'ed-item']) }}
+								{{ Form::textarea('descripcion_objetivos',	'', ['size' => '90x2'],['class' => 'ed-item']) }}
 								</div>
 								<div class="ed-item no-padding movil main-end">
 									<div class="ed-container">
@@ -83,12 +83,20 @@
 							<small>Lista de registros</small>
  							@if(count($objetivos)>0)
  								@foreach($objetivos as $objetivo)
- 								{{ Form::open(array('url'=>'/admin/actualizarObjetivos','class'=>'ed-container')) }}
+ 								{{ Form::open(array('url'=>'/admin/actualizarObjetivoEspecifico','class'=>'ed-container')) }}
+									{{ Form::hidden('id_objetivos', $objetivo->id_objetivos, array('readonly')) }}
+									{{ Form::hidden('centro_objetivos', $objetivo->centro_objetivos, array('readonly')) }}
 									{{ Form::textarea('descripcion_objetivos',	$objetivo->descripcion_objetivos, ['size' => '90x2'],['class' => 'ed-item']) }}<br>
 									<div class="ed-item movil main-end no-padding">
 											{{ Form::submit('Actualizar', array('class'=>'btnIniciar')) }}	
 									</div>
-								{{ Form::close() }}		
+								{{ Form::close() }}	
+								{{ Form::open(array('url'=>'/pruebas/eliminarObjetivos','class'=>'ed-container')) }}
+									{{ Form::hidden('id_objetivos', $objetivo->id_objetivos, array('readonly')) }}
+									<div class="ed-item movil main-end no-padding">
+									&nbsp; {{ Form::submit('Eliminar', array('class'=>'btnIniciar')) }}
+									</div>
+								{{ Form::close() }}
  								@endforeach
 							@else
 								<div class="ed-item main-start">
