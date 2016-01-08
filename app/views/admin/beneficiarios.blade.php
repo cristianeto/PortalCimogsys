@@ -2,7 +2,7 @@
 @extends('plantilla.adminPlantilla')
 
 @section('titulo')
-  Misión Visión
+  Beneficiarios
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))		
@@ -49,17 +49,15 @@
  				</div>
 				<div class="ed-item base movil-2-3  padding-3 ">
 					@if($centro!=null)
-						<div class="ed-container">
 							{{ Form::open(array('url'=>'/pruebas/guardarBeneficiarios')) }}
-					<label for="nombre_beneficiario">Nombre</label>
-					{{ Form::text('nombre_beneficiarios') }}<br>
-					<label for="descripcion_beneficiarios">Descripción</label>
-					{{ Form::textarea('descripcion_beneficiarios') }}
+					{{ Form::label('nombre_beneficiarios','Nombre', array('class'=>'ed-item base')) }}
+					{{ Form::text('nombre_beneficiarios','', array('placeholder'=>'Ejemplo: FIE','class'=>'ed-item base')) }}<br>
+					{{ Form::label('descripcion_beneficiarios','Descripción', array('class'=>'ed-item base')) }}
+					{{ Form::textarea('descripcion_beneficiarios','' ,array('class'=>'ed-item base')) }}
 					<span> {{ Form::hidden('centro_beneficiarios', $centro->id_centro, array('readonly')) }} </span>
 					<br>
 					{{ Form::submit('Guardar',array('class'=>'main-end submit btnIniciar')) }}
 				{{ Form::close() }}
-						</div> 						
 					@else
 						<div class="ed-container main-start">
 							<p>No existe el centro de investigación registrado.</p>
@@ -76,13 +74,16 @@
 				<div class="ed-item base movil-2-3  padding-3 ">
 					@if($centro!=null)
 						@if(count($beneficiarios)>0)
+						
 					@foreach($beneficiarios as $beneficiario)   
 					<div class="ed-item main-start">
 						{{ Form::open(array('url'=>'/pruebas/actualizarBeneficiarios','class'=>'ed-container')) }}
 							<p>
-								{{ Form::hidden('id_beneficiarios', $beneficiario->id_beneficiarios, array('readonly')) }} 
-								{{ Form::text('nombre_beneficiarios', $beneficiario->nombre_beneficiarios) }}
-								{{ Form::text('descripcion_beneficiarios', $beneficiario->descripcion_beneficiarios) }}
+								{{ Form::hidden('id_beneficiarios', $beneficiario->id_beneficiarios, array('readonly','class'=>'')) }} 
+								{{ Form::label('nombre_beneficiarios','Nombre', array('class'=>'ed-item base')) }}	
+								{{ Form::text('nombre_beneficiarios', $beneficiario->nombre_beneficiarios, array('class'=>'ed-item-base')) }}
+								{{ Form::label('descripcion_beneficiarios','Descripción', array('class'=>'ed-item base')) }}	
+								{{ Form::textarea('descripcion_beneficiarios', $beneficiario->descripcion_beneficiarios, array('class'=>'ed-item base')) }}
 								{{ Form::hidden('centro_beneficiarios', $centro->id_centro, array('readonly')) }} 
 							</p>
 							&nbsp; {{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}
@@ -91,6 +92,7 @@
 							{{ Form::text('id_beneficiarios', $beneficiario->id_beneficiarios, array('readonly','style'=>'display:none')) }}
 							&nbsp; {{ Form::submit('Eliminar', array('class'=>'btnIniciar')) }}
 						{{ Form::close() }}
+						<hr>
 					</div>
 					@endforeach
 				@else

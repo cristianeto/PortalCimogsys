@@ -53,8 +53,5 @@
     </main>
   @stop
   <script src="js/script.js"></script>
-  @section('footer')
-    @parent
-  @stop
 </body>
 @stop

@@ -1,6 +1,4 @@
-
 @extends('plantilla.adminPlantilla')
-
 @section('titulo')
   Misión Visión
 @stop
@@ -41,8 +39,8 @@
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admCentro')}}"><i class="fa fa-building-o fa-3x"></i><small>El Centro</small></a></div></div>
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="#"><i class="fa fa-users fa-3x"></i><small>Redes Sociales</small></a></div></div>
  				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admAreas')}}"><i class="fa fa-user fa-3x"></i><small>Área Gestión</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-files-o fa-3x"></i><small>Proyectos</small></a></div></div>
- 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-newspaper-o fa-3x"></i><small>Noticias</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admProyectos')}}"><i class="fa fa-files-o fa-3x"></i><small>Proyectos</small></a></div></div>
+ 				<div class="ed-item main-center movil-1-6"><div class="iconoMenuCabecera"><a href="{{URL::Route('admNoticias')}}"><i class="fa fa-newspaper-o fa-3x"></i><small>Noticias</small></a></div></div>
  			</div>
  			<div class="ed-container movil ">
  				<div class="ed-item movil">
@@ -52,20 +50,19 @@
  							{{Form::text('buscar')}}&nbsp{{Form::submit('Buscar', array('class' => 'btnIniciar'))}}
  						</div>-->
  					</div>
- 					<div class="ed-container movil-2-3 no-padding main-center">
+ 					<div class="ed-container movil-1-3 no-padding main-center">
  						@if($centro!=null)
 							{{ Form::open(array('url'=>'/pruebas/guardarRedesSociales')) }}
-							<label for="nombre_redes_sociales">Nombre Red</label>
-							{{ Form::text('nombre_redes_sociales') }}<br>
-							<span> 
-							<label for="enlace_redes_sociales">Enlace Red</label>
-							{{ Form::text('enlace_redes_sociales') }}<br>
-							<label for="usuario_redes_sociales">Usuario Red</label>
-							{{ Form::text('usuario_redes_sociales') }}
-							<span> 
-							<span> 
+							
+							<label class="ed-item base" for="nombre_redes_sociales">Nombre Red</label>
+							{{ Form::text('nombre_redes_sociales', '',array('placeholder'=>'Facebook','class'=>'ed-item base')) }}
+							
+							<label class="ed-item base" for="enlace_redes_sociales">Enlace Red</label>
+							{{ Form::text('enlace_redes_sociales', '',array('placeholder'=>'https://www.facebook.com/centro.cimogsys','class'=>'ed-item base')) }}
+							<label class="ed-item base" for="usuario_redes_sociales">Usuario Red</label>
+							{{ Form::text('usuario_redes_sociales', '',array('placeholder'=>'centro.cimogsys','class'=>'ed-item base')) }}
+							
 								{{ Form::hidden('centro_redes_sociales', $centro->id_centro, array('readonly')) }} 
-							</span>
 							<br>
 							{{ Form::submit('Agregar',array('class'=>'submit btnIniciar')) }}
 						{{ Form::close() }}
@@ -80,21 +77,26 @@
  					<div class="ed-container movil-2-3 no-padding main-center">
  						@if($centro!=null)
 							@if(count($redes)>0)
+							<?php $cont=0 ?>
 					@foreach($redes as $red)   
 					<div class="ed-item main-start">
 						{{ Form::open(array('url'=>'/pruebas/actualizarRedesSociales','class'=>'ed-container')) }}
-							<p>
-								<span> {{ Form::hidden('id_redes_sociales', $red->id_redes_sociales, array('readonly')) }} </span>
-								{{ Form::text('nombre_redes_sociales', $red->nombre_redes_sociales) }}
-								{{ Form::text('enlace_redes_sociales', $red->enlace_redes_sociales) }}
-								{{ Form::text('usuario_redes_sociales', $red->usuario_redes_sociales) }}
-								<span> {{ Form::hidden('centro_redes_sociales', $red->centro_redes_sociales, array('readonly')) }} </span>
-							</p>
-							&nbsp; {{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}
+								{{ Form::hidden('id_redes_sociales', $red->id_redes_sociales, array('readonly')) }}
+								{{(++$cont)}}.
+								<label class="ed-item base" for="nombre_redes_sociales">Nombre</label>
+								{{ Form::text('nombre_redes_sociales', $red->nombre_redes_sociales, array('placeholder'=>'Facebook','class'=>'ed-item base')) }}
+								<label class="ed-item base" for="enlace_redes_sociales">Enlace</label>
+								{{ Form::text('enlace_redes_sociales', $red->enlace_redes_sociales, array('placeholder'=>'https://www.facebook.com/centro.cimogsys','class'=>'ed-item base')) }}
+								<label class="ed-item base" for="usuario_redes_sociales">Usuario</label>
+								{{ Form::text('usuario_redes_sociales', $red->usuario_redes_sociales, array('placeholder'=>'centro.cimogsys','class'=>'ed-item base')) }}
+								 {{ Form::hidden('centro_redes_sociales', $red->centro_redes_sociales, array('readonly')) }} 
+							&nbsp; <div class="ed-item base movil main-end no-padding">{{ Form::submit('Modificar', array('class'=>'main-end btnIniciar')) }}</div>
 						{{ Form::close() }}
 						{{ Form::open(array('url'=>'/pruebas/eliminarRedesSociales','class'=>'ed-container')) }}
 							{{ Form::hidden('id_redes_sociales', $red->id_redes_sociales, array('readonly','style'=>'display:none')) }}
-							&nbsp; {{ Form::submit('Eliminar', array('class'=>'btnIniciar')) }}
+							&nbsp; 
+							<div class="ed-item movil main-end no-padding">{{ Form::submit('Eliminar', array('class'=>'btnIniciar')) }}</div>
+							
 						{{ Form::close() }}
 					</div>
 					@endforeach

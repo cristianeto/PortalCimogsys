@@ -837,21 +837,24 @@ class TestController  extends BaseController{
 
 public function guardarNoticia(){
 		$response=0;
-
+		$id_noticia = Noticia::codigo_nuevo_noticia();
 		$titulo_noticia = e(Input::get('titulo_noticia'));
 		$contenido_noticia = e(Input::get('contenido_noticia'));
 		$enlace_noticia = e(Input::get('enlace_noticia'));
 		$area_gestion_notica = e(Input::get('area_gestion_notica'));
+		$imagen_noticia = Input::file('imagen_noticia');
 		$centro = e(Input::get('centro_linea_investigacion'));
+		$imagen_noticia_nombre = $id_noticia.'_imagenNoticia.'.$imagen_noticia->getClientOriginalExtension();
 
-		$response = Centro::buscar_centro($centro);
+		$response=Centro::buscar_centro($centro);
 		if(count($response) == 1){
 			$response = 0;
 			$response = AreaGestion::buscar_area_gestion($area_gestion_notica);
 			if(count($response) == 1){
 				$response = 0;
-				$response = Noticia::insertar_noticia($titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica);
+				$response = Noticia::insertar_noticia($id_noticia, $titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica,$imagen_noticia_nombre);
 				if($response == 1){
+					$imagen_noticia->move('img/noticia',$imagen_noticia_nombre);
 					return Redirect::to(URL::previous())->with('mensaje','Noticia Insertada Correctamente');
 				}else{
 					return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -873,6 +876,15 @@ public function guardarNoticia(){
 		$area_gestion_notica = e(Input::get('area_gestion_notica'));
 		$centro = e(Input::get('centro_linea_investigacion'));
 		
+		$noticia = Noticia::buscar_noticia($id_noticia);
+		
+		if(!is_null(Input::file('imagen_noticia'))){
+			$imagen_noticia_vieja = $noticia->imagen_noticia;
+			$imagen_noticia = Input::file('imagen_noticia');	
+			$imagen_noticia_nombre = $id_noticia.'_imagenNoticia.'.$imagen_noticia->getClientOriginalExtension();
+		}else{
+			$imagen_noticia_nombre = $noticia->imagen_noticia; 
+		}
 
 		//echo $id." ".$descripcion." ".$centro." ".$tipo;
 
@@ -882,8 +894,13 @@ public function guardarNoticia(){
 			$response = AreaGestion::buscar_area_gestion($area_gestion_notica);
 			if(count($response) == 1){
 				$response = 0;
-				$response = Noticia::actualizar_noticia($id_noticia, $titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica);
+				$response = Noticia::actualizar_noticia($id_noticia, $titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica, $imagen_noticia_nombre);
 				if(count($response) == 1){ 
+					if(!is_null(Input::file('imagen_noticia'))){
+						File::delete('img/noticia/'.$imagen_noticia_vieja);
+						$imagen_noticia->move('img/noticia',$imagen_noticia_nombre);
+				
+			}
 					return Redirect::to(URL::previous())->with('mensaje','Noticia Actualizado Correctamente');
 				}else{
 					return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -898,11 +915,17 @@ public function guardarNoticia(){
 	public function eliminarNoticia(){
 		$response=0;
 		$id = e(Input::get('id_noticia'));
-		$response = Noticia::eliminar_noticia($id);
-		if($response == 1){ 
-			return Redirect::to(URL::previous())->with('mensaje','Noticia Eliminada Correctamente');
+		$noticia = Noticia::buscar_noticia($id);
+		if(count($noticia)!=0){
+			$response = Noticia::eliminar_noticia($id);
+			if($response == 1){ 
+				File::delete('img/noticia/'.$noticia->imagen_noticia);
+				return Redirect::to(URL::previous())->with('mensaje','Noticia Eliminada Correctamente');
+			}else{
+				return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
+			}
 		}else{
-			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
+			return Redirect::to(URL::previous())->with('mensaje','No se ha eliminado, noticia no válida.');
 		}
 	}
 

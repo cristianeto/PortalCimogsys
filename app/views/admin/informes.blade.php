@@ -2,7 +2,7 @@
 @extends('plantilla.adminPlantilla')
 
 @section('titulo')
-  Misión Visión
+  Informes
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))		

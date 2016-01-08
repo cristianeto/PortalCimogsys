@@ -49,23 +49,23 @@
  					<div class="ed-container movil-2-3 no-padding main-center">
  						@if($areas!=null)
 			 				{{ Form::open(array('url'=>'/pruebas/guardarProyectos','files'=>'true')) }}
-								<label for="nombre_proyectos">nombre</label>
-								{{ Form::text('nombre_proyectos') }}
+								<label for="nombre_proyectos">Nombre</label>
+								{{ Form::text('nombre_proyectos', '', array('class'=>'ed-item base')) }}
 								<br>
-								<label for="enlace_proyectos">enlace</label>
-								{{ Form::text('enlace_proyectos') }}
+								<label for="enlace_proyectos">Enlace</label>
+								{{ Form::text('enlace_proyectos', '', array('class'=>'ed-item base')) }}
 								<br>
-								<label for="descripcion_proyectos">descripción</label>
-								{{ Form::text('descripcion_proyectos') }}
+								<label for="descripcion_proyectos">Descripción</label>
+								{{ Form::textarea('descripcion_proyectos', '', array('class'=>'ed-item base')) }}
 								<br>
-								<label for="imagen_banner_proyectos">imagen_banner</label>
+								<label for="imagen_banner_proyectos">Imagen banner</label>
 								{{ Form::file('imagen_banner_proyectos') }}
 								<br>
-								<label for="imagen_min_proyectos">imagen_min</label>
+								<label for="imagen_min_proyectos">Imagen miniatura</label>
 								{{ Form::file('imagen_min_proyectos') }}
 								<br>
 								<label for="area_gestion_proyectos">Área gestión</label>
-								{{ Form::select('area_gestion_proyectos',$areas) }}
+								{{ Form::select('area_gestion_proyectos',$areas, '', array('class'=>'ed-item base')) }}
 								<br>
 								{{ Form::submit('Agregar',array('class'=>'submit btnIniciar')) }}
 							{{ Form::close() }}
@@ -76,49 +76,48 @@
  						@endif
  					</div>
 					<hr>
-					<div class="ed-container">
+					<div class="ed-container base movil-2-3">
 							@if(count($proyectos)>0)
+								<?php $cont=1?>
 								@foreach($proyectos as $proyecto)   
 								<div class="ed-item main-start">
 									{{ Form::open(array('url'=>'/pruebas/actualizarProyectos','files'=>'true','class'=>'ed-container')) }}
 									<!--<label for="id_proyectos">id</label>-->
 									{{ Form::hidden('id_proyectos',$proyecto->id_proyectos,array('readonly')) }}
-									<label for="nombre_proyectos">nombre</label>
-									{{ Form::text('nombre_proyectos',$proyecto->nombre_proyectos) }}
+									<label class="ed-item base" for="nombre_proyectos">{{$cont++}}. Nombre</label>
+									{{ Form::text('nombre_proyectos',$proyecto->nombre_proyectos, array('class'=>'ed-item base')) }}
 									<br>
-									<label for="enlace_proyectos">enlace</label>
-									{{ Form::text('enlace_proyectos',$proyecto->enlace_proyectos) }}
+									<label class="ed-item base" for="enlace_proyectos">Enlace</label>
+									{{ Form::text('enlace_proyectos',$proyecto->enlace_proyectos, array('class'=>'ed-item base')) }}
 									<br>
-									<label for="descripcion_proyectos">descripcion</label>
-									{{ Form::text('descripcion_proyectos',$proyecto->descripcion_proyectos) }}
+									<label class="ed-item base" for="descripcion_proyectos">Descripción</label>
+									{{ Form::textarea('descripcion_proyectos',$proyecto->descripcion_proyectos, array('class'=>'ed-item base')) }}
 									<br>
-									<label for="imagen_banner_proyectos">imagen_banner</label>
-									<img src=" {{ asset('img/'.$proyecto->imagen_banner_proyectos) }}" alt="">
-									{{ Form::file('imagen_banner_proyectos') }}
+									<label class="ed-item base" for="imagen_banner_proyectos">Imagen banner</label>
+									<img class="ed-item base imagenNoticia" src=" {{ asset('img/'.$proyecto->imagen_banner_proyectos) }}" alt="">
+									{{ Form::file('imagen_banner_proyectos', array('class'=>'ed-item base')) }}
 									<br>
-									<label for="imagen_min_proyectos">imagen_min</label>
-									 <img src=" {{ asset('img/'.$proyecto->imagen_min_proyectos) }}" alt="">
-									{{ Form::file('imagen_min_proyectos') }}
+									<label class="ed-item base" for="imagen_min_proyectos">Imagen miniatura</label>
+									 <img class="ed-item base imagenNoticia" src=" {{ asset('img/'.$proyecto->imagen_min_proyectos) }}" alt="">
+									{{ Form::file('imagen_min_proyectos', array('class'=>'ed-item base')) }}
 									<br>
-									<label for="area_gestion_proyectos">area_gestion</label>
+									<label class="ed-item base" for="area_gestion_proyectos">Área de gestión</label>
 									{{ Form::select('area_gestion_proyectos',$areas,$proyecto->area_gestion_proyectos) }}
-									<br> {{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}
+									<br> <div class="ed-item base main-end">{{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}</div>
 									{{ Form::close() }}
 									{{ Form::open(array('url'=>'/pruebas/eliminarProyectos','class'=>'ed-container')) }}
 									{{ Form::text('id_proyectos', $proyecto->id_proyectos,array('style'=>'display:none')) }}
-										&nbsp; {{ Form::submit('Eliminar', array('class'=>'btnIniciar')) }}
+										&nbsp; <div class="ed-item base main-end">{{ Form::submit('Eliminar', array('class'=>'btnIniciar')) }}</div>
 									{{ Form::close() }}
 								</div>
 								@endforeach
 							@else
 								<div class="ed-item main-start">
-									<p>no hay lineas de proyectos en el area de gestion</p>
+									<p>no hay proyectos en el centro de investigación.</p>
 								</div>
 							@endif
 					</div>
-
  				</div>
- 				
  			</div>
  		</div>
  	</main>

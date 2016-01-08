@@ -31,10 +31,16 @@
       <div class="ed-container full descripcion">
         @if(count($proyectos)>0)
           @foreach($proyectos as $proyecto)
-            <div class="ed-item fie web-1-3 main-center"><a target="_blank" href="{{$proyecto->enlace_proyectos}}">{{ HTML::image('img/'.$proyecto->imagen_min_proyectos, 'alt=logo proyecto') }}</a>
+            <div class="ed-item fie web-1-3 main-center"><a class="cross-center" target="_blank" href="{{$proyecto->enlace_proyectos}}">{{ HTML::image('img/'.$proyecto->imagen_min_proyectos, 'alt=logo proyecto', array('class'=>'')) }}</a>
               <p> {{ $proyecto->descripcion_proyectos }}</p>
             </div>
+            
             @endforeach
+            <div class="ed-item fie web-1-3 main-center"><a target="_blank" href="#">Revista Científica (Normas de publicación de la Revista.)</a>
+              <p>
+              Documento descargable. Clic aquí para descargar...!
+              </p>
+            </div>
           @endif
             
       </div>

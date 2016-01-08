@@ -3,7 +3,7 @@
 @parent
 @stop
 @section('titulo')
- Inicio
+ Misión Visión
 @stop
 @section('body')
 <body class="misionVision">

@@ -1,8 +1,6 @@
-
 @extends('plantilla.adminPlantilla')
-
 @section('titulo')
-  Misión Visión
+  Usuarios
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))		
@@ -88,40 +86,44 @@
  					
  					<div class="ed-container movil-2-3 no-padding main-center">
 		 				@if(count($usuarios)>0)
+		 				<?php $cont=1 ?>
 							@foreach($usuarios as $usuario)   
 							<div class="ed-item main-start">
 								{{ Form::open(array('url'=>'/pruebas/actualizarUsuario','files'=>'true','class'=>'ed-container')) }}
 									<p>
+										{{$cont++;}}.<br>
 										{{ Form::label('codigo','Código')}}
-										{{ Form::text('id_usuario', $usuario->id_usuario, array('readonly')) }} 
+										{{ Form::text('id_usuario', $usuario->id_usuario, array('readonly')) }} <br>
 										{{ Form::label('cedula','Cédula')}}
-										{{ Form::text('cedula', $usuario->ci_usuario, array('readonly')) }} 
+										{{ Form::text('cedula', $usuario->ci_usuario, array('readonly')) }} <br>
 										{{ Form::label('nick','Nick')}}
-										{{ Form::text('nick_usuario', $usuario->nick_usuario) }}
+										{{ Form::text('nick_usuario', $usuario->nick_usuario) }}<br>
 										{{ Form::label('nombres','Nombres')}}
-										{{ Form::text('nombres_usuario', $usuario->nombres_usuario) }}
+										{{ Form::text('nombres_usuario', $usuario->nombres_usuario) }}<br>
 										{{ Form::label('apellidos','Apellidos')}}
-										{{ Form::text('apellidos_usuario', $usuario->apellidos_usuario) }}
+										{{ Form::text('apellidos_usuario', $usuario->apellidos_usuario) }}<br>
 										{{ Form::label('contrasena','Contraseña')}}
-										{{ Form::text('contrasena', $usuario->password) }}
+										{{ Form::text('contrasena', $usuario->password) }}<br>
 										{{ Form::label('email', 'Correo', array('class' => 'awesome')); }}
-										{{ Form::text('correo_usuario', $usuario->correo_usuario) }}
+										{{ Form::text('correo_usuario', $usuario->correo_usuario) }}<br>
 										{{ Form::label('telefono', 'Teléfono', array('class' => 'someoneClass')); }}
-										{{ Form::text('telefono', $usuario->telefono_usuario) }}
+										{{ Form::text('telefono', $usuario->telefono_usuario) }}<br>
 										{{ Form::label('sexo', 'Sexo:', array('class' => 'someoneClass')); }}
-										{{ Form::select('genero_usuario', array('H'=>'Hombre', 'M'=>'Mujer'), $usuario->genero_usuario) }}
-										{{ Form::label('imagenFormal','Formal')}}
+										{{ Form::select('genero_usuario', array('H'=>'Hombre', 'M'=>'Mujer'), $usuario->genero_usuario) }}<br>
+										{{ Form::label('imagenFormal','Imagen Formal')}}
 										{{ HTML::image('img/usuario/'.$usuario->img_formal_usuario, 'alt', array( 'width' => 70, 'height' => 70 )) }}
 										<!--<img src=" {{ asset('img/'.$usuario->img_formal_usuario) }}" alt="">-->
-										{{ Form::file('img_formal_usuario') }}
-										{{ Form::label('imagenInformal','Informal')}}
+										{{ Form::file('img_formal_usuario') }}<br>
+										{{ Form::label('imagenInformal','Imagen Informal')}}
 										{{ HTML::image('img/usuario/'.$usuario->img_informal_usuario, 'alt', array( 'width' => 70, 'height' => 70 )) }}
 										<!--<img src=" {{ asset('img/'.$usuario->img_informal_usuario) }}" alt="">-->
-										{{ Form::file('img_informal_usuario') }}
+										{{ Form::file('img_informal_usuario') }}<br>
 										{{ Form::label('fecha_nacimiento_usuario','Fecha Nacimiento')}}
-										{{ Form::text('fecha_nacimiento', $usuario->fecha_nacimiento_usuario) }}
-										{{ Form::select('area_usuario', $areas, $usuario->area_gestion_usuario)}}
-										{{ Form::select('tipo_usuario', $tipos, $usuario->tipo_usuario)}}
+										{{ Form::text('fecha_nacimiento', $usuario->fecha_nacimiento_usuario) }}<br>
+										{{ Form::label('area_usuario','Area de Gestión')}}
+										{{ Form::select('area_usuario', $areas, $usuario->area_gestion_usuario)}}<br>
+										{{ Form::label('tipo_usuario','Tipo de Usuario')}}
+										{{ Form::select('tipo_usuario', $tipos, $usuario->tipo_usuario)}}<br>
 										&nbsp; {{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}
 									</p>
 									

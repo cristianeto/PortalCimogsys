@@ -1,7 +1,6 @@
 @extends('plantilla.plantilla')
-
 @section('titulo')
-  IniciarSesión
+  Iniciar Sesión
 @stop
 <body class="iniciarSesion">
 <header class="ed-container full">
@@ -24,7 +23,7 @@
     </div>
   </header>
 	<main class="ed-container full main-center cross-center">
-		<div class="ed-item movil-1-3 cuadro main-center">
+		<div class="ed-item base movil-5-8 tablet-1-3 cuadro main-center">
 			<div class="ed-item movil-50 main-center titulo">
 				Iniciar Sesión
 			</div>

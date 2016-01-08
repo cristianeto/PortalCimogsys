@@ -2,7 +2,7 @@
 @extends('plantilla.adminPlantilla')
 
 @section('titulo')
-  Misión Visión
+  El Centro
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))		
@@ -46,34 +46,41 @@
  			<div class="ed-container movil ">
  				<div class="ed-item movil">
  					<div class="ed-container padding-3 ">
- 						<div class="ed-item movil-50 tituloPagina"><h4>Centro</h4></div>
- 						<div class="ed-item movil-50 main-center"></div>
+ 						<div class="ed-item movil-50 tituloPagina"><h4>El Centro</h4></div>
  					</div>
- 					<div class="ed-container padding-3">
+ 					<div class="ed-container base movil-2-3 padding-3">
  						@if($centro!=null)
 							<div class="ed-item main-start">
 					{{ Form::open(array('url'=>'/pruebas/actualizarCentro','files'=>'true','class'=>'ed-container')) }} 
 						<p>
 							<span> {{ Form::hidden('id_centro', $centro->id_centro, array('readonly')) }} </span>
-							{{ Form::text('nombre_centro',$centro->nombre_centro) }}
-							{{ Form::file('logo_centro') }}
-							<img style="width:90px;" src='{{ asset("img/$centro->logo_centro") }}' alt="">
-							{{ Form::text('descripcion_centro',$centro->descripcion_centro) }}
-							{{ Form::text('mision_centro',$centro->mision_centro) }}
-							{{ Form::text('vision_centro',$centro->vision_centro) }}
-							{{ Form::text('telefono_centro',$centro->telefono_centro) }}
-							{{ Form::text('direccion_centro',$centro->direccion_centro) }}
-							{{ Form::text('codigo_postal_centro',$centro->codigo_postal_centro) }}
-							{{ Form::text('objetivo_general_centro',$centro->objetivo_general_centro) }}
-							{{ Form::text('quienes_somos_centro',$centro->quienes_somos_centro) }}
+							{{ Form::label('nombre_centro','Nombre Centro', array('class'=>'ed-item base')) }}
+							{{ Form::text('nombre_centro',$centro->nombre_centro, array('readonly','class'=>'ed-item base movil-1-3')) }}<br>
+							{{ Form::label('Logo','Logo Centro', array('class'=>'ed-item base')) }}
+							{{ Form::file('logo_centro',array('class'=>'ed-item base')) }}
+							<img class="ed-item"style="width:210px;" src='{{ asset("img/$centro->logo_centro") }}' alt=""><br>
+							{{ Form::label('descripcion_centro','Descripción centro', array('class'=>'ed-item base')) }}
+							{{ Form::textarea('descripcion_centro',$centro->descripcion_centro, array('class'=>'ed-item base')) }}
+							{{ Form::label('mision','Misión', array('class'=>'ed-item base')) }}
+							{{ Form::textarea('mision_centro',$centro->mision_centro, array('class'=>'ed-item base')) }}
+							{{ Form::label('vision','Visión', array('class'=>'ed-item base')) }}
+							{{ Form::textarea('vision_centro',$centro->vision_centro, array('class'=>'ed-item base')) }}
+							{{ Form::label('telefono','Teléfono', array('class'=>'ed-item base')) }}
+							{{ Form::text('telefono_centro',$centro->telefono_centro, array('class'=>'ed-item base')) }}
+							{{ Form::label('direccion','Dirección', array('class'=>'ed-item base')) }}
+							{{ Form::textarea('direccion_centro',$centro->direccion_centro, array('class'=>'ed-item base')) }}
+							{{ Form::label('CodigoPostal','Código Postal', array('class'=>'ed-item base')) }}
+							{{ Form::text('codigo_postal_centro',$centro->codigo_postal_centro, array('class'=>'ed-item base')) }}
+							{{ Form::label('ObjetivoGeneral','Objetivo General', array('class'=>'ed-item base')) }}
+							{{ Form::textarea('objetivo_general_centro',$centro->objetivo_general_centro, array('class'=>'ed-item base')) }}
+							{{ Form::label('QuienesSomos','Quienes Somos', array('class'=>'ed-item base')) }}
+							{{ Form::textarea('quienes_somos_centro',$centro->quienes_somos_centro, array('class'=>'ed-item base')) }}
+							{{ Form::label('ImagenenQ','Imagen Quiénes Somos', array('class'=>'ed-item base')) }}
 							{{ Form::file('img_centro') }}
 							<img style="width:90px;" src='{{ asset("img/$centro->img_centro") }}' alt="">
 						</p>
-						&nbsp; {{ Form::submit('Modificar') }}
-					{{ Form::close() }}
-					{{ Form::open(array('url'=>'/pruebas/eliminarCentro','class'=>'ed-container')) }}
-						{{ Form::text('id', $centro->id_centro, array('readonly','style'=>'display:none')) }}
-						&nbsp; {{ Form::submit('Eliminar') }}
+						&nbsp; 
+							<div class="ed-item no-padding main-end">{{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}</div>
 					{{ Form::close() }}
 				</div>
 

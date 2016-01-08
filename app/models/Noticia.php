@@ -7,15 +7,27 @@ class Noticia extends Eloquent
 {
 	protected $table = 'noticia';
 	public $timestamps = false; 
-	protected $fillable = array('id_noticia','titulo_noticia','contenido_noticia','fecha_publicacion_noticia','fecha_actualizacion_noticia', 'enlace_noticia', 'area_gestion_notica');
+	protected $fillable = array('id_noticia','titulo_noticia','contenido_noticia','fecha_publicacion_noticia','fecha_actualizacion_noticia', 'enlace_noticia', 'area_gestion_notica','imagen_noticia');
 
-	public static function insertar_noticia($titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica){
+	public static function codigo_nuevo_noticia(){
+		$maximo=0;
+		$maximo = (DB::table('noticia')->max('id_noticia'))+1;
+		if(count($maximo)!=0){
+			return $maximo;
+		}else{
+			return 1;
+		}
+	}
+
+	public static function insertar_noticia($id_noticia,$titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica, $imagen_noticia){
 		$response = DB::table('noticia')
 					->insert([
+						'id_noticia'=>$id_noticia,
 						'titulo_noticia'=>$titulo_noticia,
 						'contenido_noticia'=>$contenido_noticia,
 						'enlace_noticia'=>$enlace_noticia,
-						'area_gestion_notica'=>$area_gestion_notica
+						'area_gestion_notica'=>$area_gestion_notica,
+						'imagen_noticia'=>$imagen_noticia
 						]);
 		return $response;
 	}
@@ -75,7 +87,7 @@ class Noticia extends Eloquent
 			case 3:
 				//listar todos descendente
 				$response = DB::table('noticia')
-							->orderBy('id_noticia','desc')
+							->orderBy('fecha_publicacion_noticia','desc')
 							->get();
 				break;
 			default :
@@ -85,16 +97,16 @@ class Noticia extends Eloquent
 		return $response;
 	}
 
-	public static function actualizar_noticia($id_noticia, $titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica){
+	public static function actualizar_noticia($id_noticia, $titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica, $imagen_noticia){
 		$response= DB::table('noticia')
 	        ->where('id_noticia', $id_noticia)
 	        ->where('area_gestion_notica',$area_gestion_notica)
 	        ->update(array(
 	        	'titulo_noticia'=>$titulo_noticia,
 				'contenido_noticia'=>$contenido_noticia,
-				'fecha_actualizacion_noticia'=>'CURRENT_TIMESTAMP',
 				'enlace_noticia'=>$enlace_noticia,
-				'area_gestion_notica'=>$area_gestion_notica
+				'area_gestion_notica'=>$area_gestion_notica,
+				'imagen_noticia'=>$imagen_noticia
 	        	));
 	    return $response; 
 	}

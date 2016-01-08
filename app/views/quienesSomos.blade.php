@@ -1,7 +1,7 @@
 @extends('plantilla.plantilla')
 
 @section('titulo')
-  Misión - Visión
+  Quiénes Somos?
 @stop
 <body class="quienesSomos">
   <header class="ed-container full">

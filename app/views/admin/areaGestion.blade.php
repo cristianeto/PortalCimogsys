@@ -2,7 +2,7 @@
 @extends('plantilla.adminPlantilla')
 
 @section('titulo')
-  Misión Visión
+  Area Gestión
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))		
@@ -52,14 +52,14 @@
  					<div class="ed-container movil-2-3 no-padding main-center">
 		 				{{ Form::open(array('url'=>'/pruebas/guardarAreaGestion')) }}
 							<label for="nombre_area_gestion">Nombre</label>
-							{{ Form::text('nombre_area_gestion') }}<br>
+							{{ Form::text('nombre_area_gestion','',array('placeholder'=>'Proyectos','class'=>'ed-item base')) }}<br>
 							<label for="descripcion_area_gestion">Descripción</label>
-							{{ Form::text('descripcion_area_gestion') }}<br>
+							{{ Form::text('descripcion_area_gestion','',array('placeholder'=>'Esta área es la encargada de gestionar, planificar y documentar los proyectos del centro.','class'=>'ed-item base')) }}<br>
 							<label for="color_area_gestion">Color</label>
-							{{ Form::text('color_area_gestion') }}
+							{{ Form::text('color_area_gestion','',array('placeholder'=>'#FFF','class'=>'ed-item base')) }}
 							<span> {{ Form::hidden('centro_area_gestion', $centro->id_centro, array('readonly')) }} </span>
 							<br>
-							{{ Form::submit('Agregar',array('class'=>'submit')) }}
+							{{ Form::submit('Agregar',array('class'=>'submit btnIniciar')) }}
 						{{ Form::close() }}
  					</div>
  					<hr>
@@ -71,13 +71,14 @@
 					@foreach($areas as $area)   
 					<div class="ed-item main-start">
 						{{ Form::open(array('url'=>'/pruebas/actualizarAreaGestion','class'=>'ed-container')) }}
-							<p>
 								{{ Form::hidden('id_area_gestion', $area->id_area_gestion, array('readonly')) }} 
-								{{ Form::text('nombre_area_gestion', $area->nombre_area_gestion) }}
-								{{ Form::text('descripcion_area_gestion', $area->descripcion_area_gestion) }}
-								{{ Form::text('color_area_gestion', $area->color_area_gestion) }}
+								<label class="ed-item base" for="nombre_area_gestion">Nombre</label>
+								{{ Form::text('nombre_area_gestion', $area->nombre_area_gestion, array('class'=>'ed-item')) }}
+								<label class="ed-item base" for="nombre_area_gestion">Descripción</label>
+								{{ Form::textarea('descripcion_area_gestion', $area->descripcion_area_gestion, array('class'=>'ed-item')) }}
+								<label class="ed-item base" for="color_area_gestion">Color</label>
+								{{ Form::text('color_area_gestion', $area->color_area_gestion, array('class'=>'ed-item')) }}
 								{{ Form::hidden('centro_area_gestion', $centro->id_centro, array('readonly')) }} 
-							</p>
 							&nbsp; {{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}
 						{{ Form::close() }}
 						{{ Form::open(array('url'=>'/pruebas/eliminarAreaGestion','class'=>'ed-container')) }}

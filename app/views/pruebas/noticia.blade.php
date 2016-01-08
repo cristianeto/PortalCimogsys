@@ -17,7 +17,7 @@
 		<div class="ed-container">
 			<h1>Tabla Noticias</h1>
 			<div class="ed-item main-start">
-				{{ Form::open(array('url'=>'/pruebas/guardarNoticia')) }}
+				{{ Form::open(array('url'=>'/pruebas/guardarNoticia', 'files'=>'true')) }}
 					<span>	
 						{{ Form::text('centro_linea_investigacion', $centro, array('readonly')) }} 
 					</span>
@@ -31,6 +31,8 @@
 					<span>
 						{{ Form::text('area_gestion_notica', $area, array('readonly')) }}
 					</span> 
+					<label for="imagen_noticia">Imagen</label>
+					{{ Form::file('imagen_noticia') }}<br>
 					<br>
 					{{ Form::submit('Agregar',array('class'=>'submit')) }}
 				{{ Form::close() }}
@@ -40,7 +42,7 @@
 				@if(count($noticias)>0)
 					@foreach($noticias as $noticia)   
 					<div class="ed-item main-start">
-						{{ Form::open(array('url'=>'/pruebas/actualizarNoticia','class'=>'ed-container')) }}
+						{{ Form::open(array('url'=>'/pruebas/actualizarNoticia','class'=>'ed-container', 'files'=>'true')) }}
 							<p>
 								<span> 
 									{{ Form::text('id_noticia', $noticia->id_noticia, array('readonly')) }} 
@@ -53,6 +55,9 @@
 								{{ Form::text('enlace_noticia', $noticia->enlace_noticia) }}
 
 								{{ Form::text('area_gestion_notica', $area, array('readonly')) }}
+								{{ Form::label('imagen_noticia','Imagen')}}
+								{{ HTML::image('img/noticia/'.$noticia->imagen_noticia, 'alt', array( 'width' => 70, 'height' => 70 )) }}
+								{{ Form::file('imagen_noticia') }}
 							</p>
 							&nbsp; {{ Form::submit('Modificar') }}
 						{{ Form::close() }}

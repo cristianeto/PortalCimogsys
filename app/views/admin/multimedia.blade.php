@@ -1,8 +1,6 @@
-
 @extends('plantilla.adminPlantilla')
-
 @section('titulo')
-  Noticias
+  Multimedia
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))		
@@ -29,7 +27,7 @@
  		<div class="ed-item movil-25 lateral no-padding">
  			<h4 class="bienvenido">Bienvenido</h4>
  			<ul class="ed-container cross-start menuLateral">
- 				<li class="ed-item main-start"><a class="menu-lateral-activo" href="{{URL::Route('admMultimedia')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Multimedia</a></li>
+ 				<li class="ed-item main-start"><a class="menu-lateral-activo" href="#">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Multimedia</a></li>
  			</ul>
  		</div>
  		<div class="ed-item movil-75 no-padding">
@@ -51,7 +49,7 @@
  					<div class="ed-container movil-2-3 no-padding main-center">
 						
  						@if($centro!=null)
-			 				{{ Form::open(array('url'=>'/pruebas/guardarNoticia', 'files'=>'true')) }}
+			 				{{ Form::open(array('url'=>'/pruebas/guardarNoticia')) }}
 								<span>	
 									{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }} 
 								</span>
@@ -65,8 +63,6 @@
 								<span>
 									{{ Form::select('area_gestion_notica', $areas, '', array('class'=>'ed-item base')) }}
 								</span> 
-								<label for="imagen_noticia">Imagen</label>
-								{{ Form::file('imagen_noticia') }}<br>
 								<br>
 								{{ Form::submit('Agregar',array('class'=>'submit btnIniciar')) }}
 							{{ Form::close() }}
@@ -82,7 +78,7 @@
 		 					<?php $cont=0 ?>
 							@foreach($noticias as $noticia)   
 							<div class="ed-item main-start">
-								{{ Form::open(array('url'=>'/pruebas/actualizarNoticia','class'=>'ed-container', 'files'=>'true')) }}
+								{{ Form::open(array('url'=>'/pruebas/actualizarNoticia','class'=>'ed-container')) }}
 										<span> 
 											{{ Form::hidden('id_noticia', $noticia->id_noticia, array('readonly')) }} 
 										</span>
@@ -97,13 +93,7 @@
 										{{ Form::text('enlace_noticia', $noticia->enlace_noticia, array('class'=>'ed-item base')) }}
 										<label class="ed-item base" for="area_gestion_notica">Área</label>
 										{{ Form::select('area_gestion_notica',$areas, $noticia->area_gestion_notica, array('class'=>'ed-item base')) }}
-										{{ Form::label('imagen_noticia','Imagen')}}
-										{{ HTML::image('img/noticia/'.$noticia->imagen_noticia, 'alt', array( 'class' => 'imagenNoticia')) }}
-										{{ Form::file('imagen_noticia', array('class'=>'ed-item base')) }}
-										<label for="fecha_publicacion_noticia">Fecha Publicación</label>
-										{{ Form::text('fecha_publicacion_noticia', $noticia->fecha_publicacion_noticia, array('class'=>'ed-item base', 'disabled')) }}<br>
-										<label for="fecha_actualizacion_noticia">Fecha Actualización</label>
-										{{ Form::text('fecha_actualizacion_noticia', $noticia->fecha_actualizacion_noticia, array('class'=>'ed-item base', 'disabled')) }}<br>
+									
 									&nbsp; <div class="ed-item base main-end">{{ Form::submit('Modificar', array('class'=>'btnIniciar')) }}</div>
 								{{ Form::close() }}
 								{{ Form::open(array('url'=>'/pruebas/eliminarNoticia','class'=>'ed-container')) }}

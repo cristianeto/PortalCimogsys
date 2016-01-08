@@ -77,6 +77,8 @@ Route::get('/admin/areasGestion',array('as'=>'admAreas','uses'=>'AreaGestionCont
 Route::get('/admin/proyectos',array('as'=>'admProyectos','uses'=>'ProyectosController@visualizarAdminProyectos'));
 //noticias	
 Route::get('/admin/noticias',array('as'=>'admNoticias','uses'=>'NoticiaController@visualizarAdminNoticias'));
+//multimedia	
+Route::get('/admin/multimedia',array('as'=>'admMultimedia','uses'=>'MultimediaController@visualizarAdminMultimedia'));
 /* FIN PÁGINAS ADMINISTRACIÓN*/
 
 

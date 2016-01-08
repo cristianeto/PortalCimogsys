@@ -2,7 +2,7 @@
 @extends('plantilla.adminPlantilla')
 
 @section('titulo')
-  Misión Visión
+  Líneas
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))		
@@ -53,21 +53,17 @@
  					</div>
  					<div class="ed-container movil-2-3 no-padding main-center">
 						
- 						@if($centro!=null)
-@if($centro!=null)
-						<div class="ed-container">
-							{{ Form::open(array('url'=>'/pruebas/guardarLineaInvestigacion')) }}
-					<label for="descripcion">Descripcion</label>
-					{{ Form::text('descripcion_linea_investigacion') }}
-					<span>	
-						{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }} 
-					</span>
-					<span>
-						{{ Form::select('tipo_linea_investigacion', $tipos) }}
-					</span> 
-					<br>
-					{{ Form::submit('Agregar',array('class'=>'submit')) }}
-				{{ Form::close() }}
+ 					@if($centro!=null)
+					@if($centro!=null)
+						<div class="ed-item">
+							{{ Form::open(array('url'=>'/pruebas/guardarLineaInvestigacion', 'class'=>'ed-container')) }}
+								<label for="descripcion">Descripción</label>
+								{{ Form::text('descripcion_linea_investigacion','',array('class'=>'ed-item base')) }}
+								{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }} 
+								{{Form::label('tipo','Tipo',array('class'=>'ed-item base'))}}
+								{{ Form::select('tipo_linea_investigacion', $tipos, array('class'=>'ed-item base')) }}
+								{{ Form::submit('Agregar',array('class'=>'submit btnIniciar')) }}
+							{{ Form::close() }}
 						</div> 						
 					@else
 						<div class="ed-container main-start">
@@ -86,14 +82,16 @@
 								<span> 
 									{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }} 
 								</span>
-								{{ Form::text('descripcion_linea_investigacion', $linea->descripcion_linea_investigacion) }}
+								<label for="descripcion_linea_investigacion" class="ed-item base">Descripción</label>
+								{{ Form::textarea('descripcion_linea_investigacion', $linea->descripcion_linea_investigacion,array('class'=>'ed-item')) }}
+								<label for="tipo_linea_investigacion" class="ed-item base">Tipo de Línea</label>
 								{{ Form::select('tipo_linea_investigacion', $tipos, $linea->tipo_linea_investigacion) }}
 							</p>
-							&nbsp; {{ Form::submit('Modificar') }}
+							&nbsp; {{ Form::submit('Modificar',array('class'=>'btnIniciar')) }}
 						{{ Form::close() }}
 						{{ Form::open(array('url'=>'/pruebas/eliminarLineaInvestigacion','class'=>'ed-container')) }}
 						{{ Form::hidden('id_linea_investigacion', $linea->id_linea_investigacion) }}
-							&nbsp; {{ Form::submit('Eliminar') }}
+							&nbsp; {{ Form::submit('Eliminar',array('class'=>'btnIniciar')) }}
 						{{ Form::close() }}
 					</div>
 					@endforeach
