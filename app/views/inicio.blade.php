@@ -6,7 +6,7 @@
  Inicio
 @stop
 @section('body')
-<body class="home">
+<body class=" home">
 @parent
   @section('header')
     <header class="ed-container full">
@@ -33,22 +33,103 @@
     @stop
     @section('main')
     <main class="ed-container full">
-      <ul class="ed-item">
-        <li id="1" style="background-image: url('img/mainAside.jpg'); background-position: 5%;"><img src="img/mainFlechaI.png" class="prev"/>
-          <div class="noticia">
-            <h1>Título 1</h1><span>Misión</span>
-            <p>
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quod facilis non, nisi. Dicta consequatur, facilis laboriosam. Alias eligendi nulla saepe veniam, doloribus. Quae nostrum nam incidunt quam quibusdam eligendi.						
-            </p>
-          </div><img src="img/mainFlechaD.png" class="next"/>
-        </li>
-        <li id="1" style="background-image: url('img/mainAside1.jpg')"><img src="img/mainFlechaI.png" class="prev"/>
-          <div class="noticia">
-            <h1>Título 2</h1><span>Misión</span>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.</p>
-          </div><img src="img/mainFlechaD.png" class="next"/>
-        </li>
+      <ul class="ed-item base">
+          <li class="imagenBanner" id="1" style="background-image: url('img/PORTADAS-PAGINA/Portada_FADE.jpg');">
+          <img src="img/arrow-left.png" class="prev"/>
+          <div class="ed-container ">
+            <div class="ed-item base movil-1-6 cross-center main-center car">
+                <img class="logoBanner" src="img/PORTADAS-PAGINA/logo_fade_blancoNegro.png" alt="logo_fade">
+            </div>
+            <div class="ed-item base movil-4-6 car">
+              <div class="padding-2">
+                <h1 class="tituloNoticia">Facultad de Administración de Empresas</h1>
+              <p>
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
+                 
+              </p>
+              <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+              </div>
+            </div>
+          </div>
+          <img src="img/arrow-right.png" class="next"/>
+          </li>
+          <li class="imagenBanner" id="1" style="background-image: url('img/PORTADAS-PAGINA/Portada_FIE.jpg'); background-position: 5%;">
+          <img src="img/arrow-left.png" class="prev"/>
+          <div class="ed-container ">
+            <div class="ed-item base movil-1-6 cross-center main-center car">
+                <img class="logoBanner" src="img/PORTADAS-PAGINA/logo_FIE_blancoNegro.png" alt="logo_fade">
+            </div>
+            <div class="ed-item base movil-4-6 car">
+              <div class="padding-2">
+                <h1 class="tituloNoticia">Facultad de Informática y Electrónica</h1>
+              <p>
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
+                 
+              </p>
+              <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+              </div>
+            </div>
+          </div>
+          <img src="img/arrow-right.png" class="next"/>
+          </li>
+          <li class="imagenBanner" id="1" style="background-image: url('img/PORTADAS-PAGINA/Portada_INVESTIGAR.jpg'); background-position: 5%;">
+          <img src="img/arrow-left.png" class="prev"/>
+          <div class="ed-container ">
+            <div class="ed-item base movil-1-6 cross-center main-center car">
+                <img class="logoBanner" src="img/PORTADAS-PAGINA/logo_INVESTIGAR_blancoNegro.png" alt="logo_fade">
+            </div>
+            <div class="ed-item base movil-4-6 car">
+              <div class="padding-2">
+                <h1 class="tituloNoticia">Revista Científica: Investigar</h1>
+              <p>
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
+                 
+              </p>
+              <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+              </div>
+            </div>
+          </div>
+          <img src="img/arrow-right.png" class="next"/>
+          </li>
+                    </li>
+          <li class="imagenBanner" id="1" style="background-image: url('img/PORTADAS-PAGINA/Portada_RED.jpg'); background-position: 5%;">
+          <img src="img/arrow-left.png" class="prev"/>
+          <div class="ed-container ">
+            <div class="ed-item base movil-1-6 cross-center main-center car">
+                <img class="logoBanner" src="img/PORTADAS-PAGINA/logo_RED_blancoNegro.png" alt="logo_fade">
+            </div>
+            <div class="ed-item base movil-4-6 car">
+              <div class="padding-2">
+                <h1 class="tituloNoticia">Red de Conocimiento</h1>
+              <p>
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
+                 
+              </p>
+              <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+              </div>
+            </div>
+          </div>
+          <img src="img/arrow-right.png" class="next"/>
+          </li>
+                    <li class="imagenBanner" id="1" style="background-image: url('img/PORTADAS-PAGINA/Portada_SGA.jpg'); background-position: 5%;">
+          <img src="img/arrow-left.png" class="prev"/>
+          <div class="ed-container ">
+            <div class="ed-item base movil-1-6 cross-center main-center car">
+                <img class="logoBanner" src="img/PORTADAS-PAGINA/logo_SGA_blancoNegro.png" alt="logo_fade">
+            </div>
+            <div class="ed-item base movil-4-6 car">
+              <div class="padding-2">
+                <h1 class="tituloNoticia">Sistema de Gestión de Acreditación</h1>
+              <p>
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
+                 
+              </p>
+              <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+              </div>
+            </div>
+          </div>
+          <img src="img/arrow-right.png" class="next"/>
+          </li>
       </ul>
     </main>
   @stop

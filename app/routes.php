@@ -82,6 +82,11 @@ Route::get('/admin/multimedia',array('as'=>'admMultimedia','uses'=>'MultimediaCo
 /* FIN PÁGINAS ADMINISTRACIÓN*/
 
 
+/* INICIO PAGINAS COMITE ACADEMICO */
+Route::get('/academico/perfil',array('as'=>'acadPerfil','uses'=>'UserController@visualizarPerfilAcademico'));
+/* FIN PAGINAS COMITE ACADEMICO */
+
+
 //Pruebas
 Route::group(array('prefix'=>'pruebas'),function(){
 

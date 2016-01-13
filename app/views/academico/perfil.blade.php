@@ -1,6 +1,8 @@
+
 @extends('plantilla.adminPlantilla')
+
 @section('titulo')
-  Informes
+  Perfil
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))		
@@ -28,7 +30,7 @@
  			<h4 class="bienvenido">Bienvenido</h4>
  			<ul class="ed-container cross-start menuLateral">
  				<li class="ed-item main-start"><a href="{{URL::Route('admUsuarios')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Usuarios</a></li>
- 				<li class="ed-item main-start"><a class="menu-lateral-activo" href="{{URL::Route('admInformes')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Informes</a></li>
+ 				<li class="ed-item main-start"><a href="{{URL::Route('admInformes')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Informes</a></li>
  			</ul>
  		</div>
  		<div class="ed-item movil-75 no-padding">
@@ -42,47 +44,19 @@
  			<div class="ed-container movil ">
  				<div class="ed-item movil">
  					<div class="ed-container padding-3 ">
- 						<div class="ed-item movil-2-3 tituloPagina"><h4>Áreas de Gestión: Informes</h4></div>
+ 						<div class="ed-item movil-2-3 tituloPagina"><h4>Áreas de Gestión</h4></div>
  						<!--<div class="ed-item movil-50 main-center cross-center">
  							{{Form::text('buscar')}}&nbsp{{Form::submit('Buscar', array('class' => 'btnIniciar'))}}
  						</div>-->
  					</div>
  					<div class="ed-container movil-2-3 no-padding main-center">
-					 		
+		 				asdasd
  					</div>
- 					<div class="ed-container movil-1-3 no-padding main-center">
-						@if(count($informes)>0)
-							@foreach($informes as $informe)
-							<div class="ed-item main-start">
-								{{ Form::open(array('url'=>'/pruebas/actualizarInforme','files'=>'true','class'=>'ed-container')) }}
-										<!--{{ Form::label('id_informe','Código')}}-->
-										{{ Form::hidden('id_informe', $informe->id_informe, array('readonly')) }}
-										{{ Form::label('codigo_informe','Identificador')}}
-										{{ Form::text('codigo_informe', $informe->codigo_informe, array('readonly', 'class'=>'ed-item')) }}
-										{{ Form::label('descripcion_informe','Descripción')}}
-										{{ Form::text('descripcion_informe', $informe->descripcion_informe, array('readonly', 'class'=>'ed-item')) }}
-										{{ Form::label('fecha_entrega_informe','FechaEntrega')}}
-										{{ Form::text('fecha_entrega_informe', $informe->fecha_entrega_informe, array('readonly', 'class'=>'ed-item')) }}
-										{{ Form::label('fecha_modificacion_informe','FechaModificacion')}}
-										{{ Form::text('fecha_modificacion_informe', $informe->fecha_modificacion_informe, array('readonly', 'class'=>'ed-item')) }}
-										{{ Form::label('archivo_informe','Archivo')}}
-										{{ link_to_asset('img/informe/'.$informe->archivo_informe, $title='Informe archivo'.$informe->id_informe, $attributes = array('download'=>$informe->archivo_informe));}}
-										{{ Form::file('archivo_informe', array('readonly', 'class'=>'ed-item')) }}<br>
-										<!--{{ Form::label('usuario','Usuario')}}-->
-										{{ Form::hidden('usuario', $informe->usuario_id_usuario, array('readonly')) }}
-										&nbsp; {{ Form::submit('Modificar',array('class'=>'btnIniciar')) }}
-								{{ Form::close() }}
-								{{ Form::open(array('url'=>'/pruebas/eliminarInforme','class'=>'ed-container')) }}
-								{{ Form::hidden('id_informe', $informe->id_informe) }}
-									&nbsp; {{ Form::submit('Eliminar',array('class'=>'btnIniciar')) }}
-								{{ Form::close() }}
-							</div>
-							@endforeach
-						@else
-							<div class="ed-item main-start">
-								<p>No existen informes para este usuario</p>
-							</div>
-						@endif		 				
+ 					<hr>
+
+ 					<div class="ed-container movil-2-3 no-padding main-center">
+						
+ 					
  					</div>
  				</div>
  				

@@ -39,6 +39,9 @@ class AuthController extends BaseController {
                     case 3:
                         return Redirect::to('/usuarios/index');    
                         break;
+                    case 7:
+                        return Redirect::to('/academico/perfil');    
+                        break;
                 }
             }else{
                 return Redirect::to(URL::previous())->with('mensaje','Credenciales Inválidas');

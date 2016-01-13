@@ -342,3 +342,48 @@ footer{
 	max-height: 30vh;
 	width: auto;
 }
+
+.car{
+	//background: #000;
+	//background:rgba(0,0,0,0.5);
+	color:#fff;
+}
+.ed-container>.car:first-child{
+	border-right: 1px solid #fff;
+}
+div>div> h1{
+	color:#fff;
+}
+div>div> p{
+	text-align: justify;
+}
+div>div>label> a{
+	color:#fff;
+}
+.tituloNoticia{
+	color:#fff;
+	text-transform: uppercase;
+	text-align: justify;
+}
+.verMasNoticia>a{
+	color:#fff;
+}
+
+.prev, .next{
+	max-height: 3em;
+	width: 3em;
+}
+.prev{
+	padding-left: 0.5em;	
+}
+.next{
+	padding-right: 0.5em;	
+}
+.imagenBanner{
+
+}
+
+.logoBanner{
+	min-height: auto;
+	min-width: auto;
+}

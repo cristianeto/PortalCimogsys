@@ -56,11 +56,11 @@
 									{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }} 
 								</span>
 								<label for="titulo">Título</label>
-								{{ Form::text('titulo_noticia', '', array('class'=>'ed-item base')) }}<br>
+								{{ Form::text('titulo_noticia', '', array('placeholder'=>'Ingrese un título para la noticia','class'=>'ed-item base')) }}<br>
 								<label for="contenido">Contenido</label>
-								{{ Form::textarea('contenido_noticia', '', array('class'=>'ed-item base')) }}<br>
+								{{ Form::textarea('contenido_noticia', '', array('placeholder'=>'Ingrese un contenido para la noticia','class'=>'ed-item base')) }}<br>
 								<label for="enlace">Enlace</label>
-								{{ Form::text('enlace_noticia', '', array('class'=>'ed-item base')) }}<br>
+								{{ Form::text('enlace_noticia', '', array('placeholder'=>'Ingrese un enlace referencial para la noticia','class'=>'ed-item base')) }}<br>
 								<label for="area">Área</label>
 								<span>
 									{{ Form::select('area_gestion_notica', $areas, '', array('class'=>'ed-item base')) }}
