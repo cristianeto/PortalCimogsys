@@ -7,7 +7,7 @@ use Illuminate\Support\MessageBag,
 class UserController extends BaseController {
 
 	public function registro(){
-		
+
 		//Campos
         $nombresApellidos = e(Input::get('nombresApellidos'));
         $edad = e(Input::get('edad'));
@@ -22,7 +22,7 @@ class UserController extends BaseController {
     		'correo'=>'required|regex:/^([a-zA-Z0-9])+@espoch.edu.ec/|unique:usuario,correo_usuario',
     		'password'=>'required',
     		'genero'=>'required|in:Masculino,Femenino'
-    	); 
+    	);
 
     	//Mensajes
     	$messages = array(
@@ -50,18 +50,18 @@ class UserController extends BaseController {
                 if(Auth::attempt($credenciales)){
                     switch (Auth::User()->tipo_usuario) {
                         case 1:
-                            return Redirect::to('/administrador/index'); 
+                            return Redirect::to('/administrador/index');
                             break;
                         case 2:
                             return Redirect::to('/moderador/index');
                             break;
                         case 3:
-                            return Redirect::to('/usuarios/index');    
+                            return Redirect::to('/usuarios/index');
                             break;
                     }
                 }else{
                     return Redirect::to(URL::previous())->with('mensaje','Credenciales Inválidas');
-                }              
+                }
             }else{
                 return Redirect::to(URL::previous())->with('mensaje', 'Ha ocurido un error');
             }
@@ -117,7 +117,7 @@ class UserController extends BaseController {
         }else{
             return View::make('iniciarSesion')->withError('No existe el centro...');
         }
-    } 
+    }
 
     public function requestAction(){
         $centro = Centro::buscar_centro(3);
@@ -126,7 +126,7 @@ class UserController extends BaseController {
             $rules = array('correo' => "required|exists:usuario,correo_usuario" );
             $messages = array('exists' => "No se ha registrado la dirección de correo" );
             $validation = Validator::make(Input::all(),$rules,$messages);
-            if ($validation->passes()){ 
+            if ($validation->passes()){
                 $credentials = ["correo_usuario" => Input::get("correo")];
                 Password::remind($credentials,
                     function($message, $user){
@@ -136,7 +136,7 @@ class UserController extends BaseController {
                 $data["requested"] = true;
                 return Redirect::route("user/request")->withCentro($centro)->withInput($data)->with('mensaje','se ha enviado un mensaje a su correo');
             }else{
-                return View::make("user/request", $data)->withCentro($centro)->withErrors($validation);      
+                return View::make("user/request", $data)->withCentro($centro)->withErrors($validation);
             }
         }
         return View::make("user/request", $data)->withCentro($centro);
@@ -147,7 +147,7 @@ class UserController extends BaseController {
         $token = Input::get("token");
 
         $errors = new MessageBag();
-        
+
         if ($old = Input::old("errors")){
             $errors = $old;
         }
@@ -155,7 +155,7 @@ class UserController extends BaseController {
         $data = ["token" => $token,"errors" => $errors];
 
         if (Input::server("REQUEST_METHOD") == "POST"){
-         
+
             $validator = Validator::make(Input::all(), [
                 "email" => "required|email",
                 "password" => "required|min:6",
@@ -204,8 +204,8 @@ class UserController extends BaseController {
         $response = 0;
         $response = Centro::buscar_centro(3);
         if(count($response)!=0){
-            $areas = AreaGestion::where('centro_area_gestion',3)->lists('nombre_area_gestion','id_area_gestion'); 
-            //$areas = AreaGestion::listar_area_gestion(3,$centro); 
+            $areas = AreaGestion::where('centro_area_gestion',3)->lists('nombre_area_gestion','id_area_gestion');
+            //$areas = AreaGestion::listar_area_gestion(3,$centro);
             if(count($areas)!=0){
                 $tipos= TipoUsuario::lists('descripcion_tipo_usuario', 'id_tipo_usuario');
                 if(count($tipos)!=0){
@@ -215,9 +215,66 @@ class UserController extends BaseController {
                 }
             }else{
                 return View::make('admin.usuarios')->with('error','No existen áreas de gestión');
-            }       
+            }
         }else{
             return View::make('admin.usuarios')->with('error','No existe un centro de investigacion para ingresar proyectos');
         }
+    }
+
+    public function visualizarAcadPerfil(){
+      $centro = 0;
+  		$centro = Centro::buscar_centro(3);//Consulto mi centro... en nuestro caso el centro cimogsys con codigo 3
+  		if(count($centro)!=0){
+  				return View::make('acad/perfil')->withCentro($centro);
+  		}else{
+  			return View::make('acad/perfil')->withError('No existe el centro...');
+  		}
+    }
+    public function visualizarAcadEditar(){
+      $centro = 0;
+  		$centro = Centro::buscar_centro(3);//Consulto mi centro... en nuestro caso el centro cimogsys con codigo 3
+  		if(count($centro)!=0){
+          $areas=AreaGestion::lists('nombre_area_gestion','id_area_gestion');
+          if(count($areas)>0){
+            $tipos = TipoUsuario::lists('descripcion_tipo_usuario','id_tipo_usuario');
+            if(count($tipos)>0){
+  				    return View::make('acad/editar')->withCentro($centro)->withAreas($areas)->withTipos($tipos);
+            }else{
+              return View::make('acad/editar')->withError('No existen tipos de usuario en el centro...');
+            }
+          }else{
+              return View::make('acad/editar')->withError('No existen áreas de gestión en el centro...');
+          }
+  		}else{
+  			return View::make('acad/editar')->withError('No existe el centro...');
+  		}
+    }
+    public function visualizarPasanPerfil(){
+      $centro = 0;
+  		$centro = Centro::buscar_centro(3);//Consulto mi centro... en nuestro caso el centro cimogsys con codigo 3
+  		if(count($centro)!=0){
+  				return View::make('pasante/perfil')->withCentro($centro);
+  		}else{
+  			return View::make('pasante/perfil')->withError('No existe el centro...');
+  		}
+    }
+    public function visualizarPasanEditar(){
+      $centro = 0;
+  		$centro = Centro::buscar_centro(3);//Consulto mi centro... en nuestro caso el centro cimogsys con codigo 3
+  		if(count($centro)!=0){
+          $areas=AreaGestion::lists('nombre_area_gestion','id_area_gestion');
+          if(count($areas)>0){
+            $tipos = TipoUsuario::lists('descripcion_tipo_usuario','id_tipo_usuario');
+            if(count($tipos)>0){
+  				    return View::make('acad/editar')->withCentro($centro)->withAreas($areas)->withTipos($tipos);
+            }else{
+              return View::make('acad/editar')->withError('No existen tipos de usuario en el centro...');
+            }
+          }else{
+              return View::make('acad/editar')->withError('No existen áreas de gestión en el centro...');
+          }
+  		}else{
+  			return View::make('acad/editar')->withError('No existe el centro...');
+  		}
     }
 }

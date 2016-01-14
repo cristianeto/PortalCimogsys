@@ -35,7 +35,7 @@
   	<meta name="twitter:creator" content="@autor"/>
   	<meta name="twitter:image:src" content="img/headerLogo.png"/>
 
-	<title> Admin | @yield('titulo')</title>
+	<title> CIMOGSYS | @yield('titulo')</title>
 	@yield('metas')
 	@section('estilos')
     {{ HTML::style('css/styles.css'); }}

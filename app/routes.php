@@ -16,7 +16,7 @@ Route::get('mail', function(){
 	/*Mail::send('inicio', $data, function($message){
 	    $message->to('area_grafica@cimogsys.com', 'John Smith')->subject('Welcome!');
 	});*/
-	
+
 	$data = array('Saludo' => 'Holi' );
 
 	Mail::send('user/request',$data, function($message){
@@ -31,7 +31,7 @@ Route::get('/',array('as'=>'inicio', 'uses'=>'InicioController@visualizarInicio'
 Route::get('/misionVision',array('as'=>'misionVision', 'uses'=>'MisionVisionController@visualizarMisionVision'));
 //Página Objetivos
 Route::get('/objetivos',array('as'=>'objetivos', 'uses'=>'ObjetivosController@visualizarObjetivos'));
-//Página Líneas Investigación 
+//Página Líneas Investigación
 Route::get('/lineasInvestigacion',array('as'=>'lineasInvestigacion','uses'=>'LineasInvestigacionController@visualizarLineas'));
 //Página Quienes Somos
 Route::get('/quienesSomos',array('as'=>'quienesSomos','uses'=>'QuienesSomosController@visualizarQuienesSomos'));
@@ -50,7 +50,7 @@ Route::get('/logout',['uses'=>'AuthController@logout','before'=>'auth']);
 Route::any("/request",["as"=>"user/request","uses" => "UserController@requestAction"]);
 Route::any("/reset",["as"=>"user/reset","uses" => "UserController@resetAction" ]);
 
-/* FIN PAGINAS PRINCIPALES*/ 
+/* FIN PAGINAS PRINCIPALES*/
 
 /* INICIO PÁGINAS ADMINISTRACIÓN*/
 Route::get('/admin/centro',array('as'=>'admCentro','uses'=>'CentroController@visualizarAdminCentro'));
@@ -61,30 +61,35 @@ Route::post('/admin/actualizarObjetivoGeneral',array('as'=>'admActualizarObjetiv
 Route::post('/admin/guardarObjetivoEspecifico',array('as'=>'admGuardarObjetivoE','uses'=>'ObjetivosController@guardarObjetivoEspecifico'));
 Route::post('/admin/actualizarObjetivoEspecifico',array('as'=>'admActualizarObjetivoE','uses'=>'ObjetivosController@actualizarObjetivoEspecifico'));
 Route::post('/admin/eliminarObjetivoEspecifico',array('as'=>'admEliminarObjetivoE','uses'=>'ObjetivosController@eliminarObjetivoEspecifico'));
-//beneficiarios	
+//beneficiarios
 Route::get('/admin/beneficiarios',array('as'=>'admBeneficiarios','uses'=>'BeneficiariosController@visualizarAdminBeneficiarios'));
-//lineas	
+//lineas
 Route::get('/admin/lineasInvestigacion',array('as'=>'admLineas','uses'=>'LineasInvestigacionController@visualizarAdminLineas'));
-//redes sociales	
+//redes sociales
 Route::get('/admin/redesSociales',array('as'=>'admRedesSociales','uses'=>'RedesSocialesController@visualizarAdminRedes'));
-//areas gestion	
+//areas gestion
 Route::get('/admin/areasGestion',array('as'=>'admAreas','uses'=>'AreaGestionController@visualizarAdminAreas'));
 //usuarios
  Route::get('/admin/usuarios',array('as'=>'admUsuarios','uses'=>'UserController@visualizarAdminUsuarios'));
 //informes
  Route::get('/admin/informes',array('as'=>'admInformes','uses'=>'InformesController@visualizarAdminInformes'));
-//proyectos	
+//proyectos
 Route::get('/admin/proyectos',array('as'=>'admProyectos','uses'=>'ProyectosController@visualizarAdminProyectos'));
-//noticias	
+//noticias
 Route::get('/admin/noticias',array('as'=>'admNoticias','uses'=>'NoticiaController@visualizarAdminNoticias'));
-//multimedia	
+//multimedia
 Route::get('/admin/multimedia',array('as'=>'admMultimedia','uses'=>'MultimediaController@visualizarAdminMultimedia'));
 /* FIN PÁGINAS ADMINISTRACIÓN*/
 
 
 /* INICIO PAGINAS COMITE ACADEMICO */
-Route::get('/academico/perfil',array('as'=>'acadPerfil','uses'=>'UserController@visualizarPerfilAcademico'));
+Route::get('/acad/perfil',array('as'=>'acadPerfil','uses'=>'UserController@visualizarAcadPerfil'));
+Route::get('/acad/editar',array('as'=>'acadEditar','uses'=>'UserController@visualizarAcadEditar'));
 /* FIN PAGINAS COMITE ACADEMICO */
+/* INICIO PAGINAS PASANTE */
+Route::get('/pasante/perfil',array('as'=>'pasantePerfil','uses'=>'UserController@visualizarPasanPerfil'));
+Route::get('/pasante/editar',array('as'=>'pasanteEditar','uses'=>'UserController@visualizarPasanEditar'));
+/* FIN PAGINAS PASANTE */
 
 
 //Pruebas
@@ -158,7 +163,7 @@ Route::group(array('prefix'=>'pruebas'),function(){
 	Route::post('/actualizarBeneficiarios',array('uses'=>'TestController@actualizarBeneficiarios'));
 	Route::post('/eliminarBeneficiarios',array('uses'=>'TestController@eliminarBeneficiarios'));
 	Route::post('/buscarBeneficiarios',array('uses'=>'TestController@buscarBeneficiarios'));
-	
+
 	//Área de Gestión
 	Route::get('/ingresarAreaGestion/{centro}',array('uses'=>'TestController@ingresarAreaGestion'));
 	Route::post('/guardarAreaGestion',array('uses'=>'TestController@guardarAreaGestion'));
@@ -172,7 +177,7 @@ Route::group(array('prefix'=>'pruebas'),function(){
 	Route::post('/actualizarLineaInvestigacion',array('uses'=>'TestController@actualizarLineaInvestigacion'));
 	Route::post('/eliminarLineaInvestigacion',array('uses'=>'TestController@eliminarLineaInvestigacion'));
 	Route::post('/buscarLineaInvestigacion',array('uses'=>'TestController@buscarLineaInvestigacion'));
- 
+
  	//Proyectos
 	Route::get('/ingresarProyectos/{centro}/{area}',array('uses'=>'TestController@ingresarProyectos'));
 	Route::post('/guardarProyectos',array('uses'=>'TestController@guardarProyectos'));
@@ -213,5 +218,5 @@ Route::group(array('prefix'=>'pruebas'),function(){
 
 
 
- 
+
 });

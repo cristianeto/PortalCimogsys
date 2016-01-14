@@ -30,17 +30,20 @@ class AuthController extends BaseController {
                 $user->estado_usuario = 1;
                 $user->save();
                 switch (Auth::User()->tipo_usuario) {
-                    case 6:
-                        return Redirect::to('/admin/centro'); 
+                    case 6://administrador
+                        return Redirect::to('/admin/centro');
                         break;
                     case 2:
                         return Redirect::to('/moderador/index');
                         break;
                     case 3:
-                        return Redirect::to('/usuarios/index');    
+                        return Redirect::to('/usuarios/index');
                         break;
-                    case 7:
-                        return Redirect::to('/academico/perfil');    
+                    case 7://Comité académico
+                        return Redirect::to('/academico/perfil');
+                        break;
+                    case 5://Pasante
+                        return Redirect::to('/pasante/perfil');
                         break;
                 }
             }else{
@@ -52,11 +55,11 @@ class AuthController extends BaseController {
     //Función Logout
     public function logout(){
         $id = Auth::User()->id_usuario;
-        $user = User::find($id); 
+        $user = User::find($id);
         $user->estado_usuario = 0;
         $user->save();
         Auth::logout();
         return Redirect::to('/');
-    } 
+    }
 
 }

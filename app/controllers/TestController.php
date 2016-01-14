@@ -5,7 +5,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class TestController  extends BaseController{
 
 	//Tipo Usuario
-	
+
 	public function guardarTipoUsuario(){
 		$response=0;
 		$descripcion = e(Input::get('descripcion'));
@@ -22,7 +22,7 @@ class TestController  extends BaseController{
 		$id = e(Input::get('id'));
 		$descripcion = e(Input::get('descripcion'));
 		$response = TipoUsuario::actualizar_tipo_usuario($id,$descripcion);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Tipo de Usuario Actualizado Insertado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -33,7 +33,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id'));
 		$response = TipoUsuario::eliminar_tipo_usuario($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Tipo de Usuario Eliminado Insertado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -44,7 +44,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id'));
 		$response = TipoUsuario::buscar_tipo_usuario($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_tipo_usuario);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado el tipo de usuario');
@@ -54,7 +54,7 @@ class TestController  extends BaseController{
 	//Fin Tipo Usuario
 
 	//Tipo Multimedia
-	
+
 	public function guardarTipoMultimedia(){
 		$response=0;
 		$descripcion = e(Input::get('descripcion'));
@@ -71,7 +71,7 @@ class TestController  extends BaseController{
 		$id = e(Input::get('id'));
 		$descripcion = e(Input::get('descripcion'));
 		$response = TipoMultimedia::actualizar_tipo_multimedia($id,$descripcion);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Tipo de multimedia Actualizado Insertado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -82,7 +82,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id'));
 		$response = TipoMultimedia::eliminar_tipo_multimedia($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Tipo de multimedia Eliminado Insertado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -93,7 +93,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id'));
 		$response = TipoMultimedia::buscar_tipo_multimedia($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_tipo_multimedia);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado el tipo de multimedia');
@@ -103,7 +103,7 @@ class TestController  extends BaseController{
 	//Fin Tipo Multimedia
 
 	//Tipo Multimedia
-	
+
 	public function guardarTipoLineaInvestigacion(){
 		$response=0;
 		$descripcion = e(Input::get('descripcion'));
@@ -120,7 +120,7 @@ class TestController  extends BaseController{
 		$id = e(Input::get('id'));
 		$descripcion = e(Input::get('descripcion'));
 		$response = TipoLineaInvestigacion::actualizar_tipo_linea_investigacion($id,$descripcion);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Tipo de linea investigacion Actualizado Insertado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -131,7 +131,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id'));
 		$response = TipoLineaInvestigacion::eliminar_tipo_linea_investigacion($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Tipo de linea investigacion Eliminado Insertado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -142,7 +142,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id'));
 		$response = TipoLineaInvestigacion::buscar_tipo_linea_investigacion($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_tipo_linea_investigacion);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado el tipo de linea investigacion');
@@ -152,10 +152,10 @@ class TestController  extends BaseController{
 	//Fin Tipo Multimedia
 
 	//Centro
-	
+
 	public function guardarCentro(){
 		$response=0;
-		
+
 		$nombre_centro = e(Input::get('nombre_centro'));
 		$descripcion_centro = e(Input::get('descripcion_centro'));
 		$mision_centro = e(Input::get('mision_centro'));
@@ -185,7 +185,7 @@ class TestController  extends BaseController{
 
 	public function actualizarCentro(){
 		$response=0;
-		
+
 		$id_centro = e(Input::get('id_centro'));
 		$nombre_centro = e(Input::get('nombre_centro'));
 		$descripcion_centro = e(Input::get('descripcion_centro'));
@@ -201,7 +201,7 @@ class TestController  extends BaseController{
 
 		if(!is_null(Input::file('logo_centro'))){
 			$file_logo_vieja = $centro->logo_centro;
-			$file_logo_centro = Input::file('logo_centro');	
+			$file_logo_centro = Input::file('logo_centro');
 			$logo_centro = $file_logo_centro->getClientOriginalName();
 		}else{
 			$logo_centro = $centro->logo_centro;
@@ -209,7 +209,7 @@ class TestController  extends BaseController{
 
 		if(!is_null(Input::file('img_centro'))){
 			$file_img_vieja = $centro->img_centro;
-			$file_img_centro = Input::file('img_centro');	
+			$file_img_centro = Input::file('img_centro');
 			$img_centro = $file_img_centro->getClientOriginalName();
 		}else{
 			$img_centro = $centro->img_centro;
@@ -217,16 +217,16 @@ class TestController  extends BaseController{
 
 		$response = Centro::actualizar_centro($id_centro,$nombre_centro,$logo_centro,$descripcion_centro,$mision_centro,$vision_centro,
 		$telefono_centro,$direccion_centro,$codigo_postal_centro,$objetivo_general_centro,$quienes_somos_centro,$img_centro);
-		if($response == 1){ 
+		if($response == 1){
 
 			if(!is_null(Input::file('logo_centro'))){
-				$file_logo_centro->move('img',$file_logo_centro->getClientOriginalName());	
+				$file_logo_centro->move('img',$file_logo_centro->getClientOriginalName());
 				File::delete('img/'.$file_logo_vieja);
 			}
 
 			if(!is_null(Input::file('img_centro'))){
-				$file_img_centro->move('img',$file_img_centro->getClientOriginalName());	
-				File::delete('img/'.$file_img_vieja);			
+				$file_img_centro->move('img',$file_img_centro->getClientOriginalName());
+				File::delete('img/'.$file_img_vieja);
 			}
 
 			return Redirect::to(URL::previous())->with('mensaje','Centro de Investigacion Actualizado Insertado Correctamente');
@@ -239,7 +239,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id'));
 		$response = Centro::eliminar_centro($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Centro de Investigacion Eliminado Insertado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -250,7 +250,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id'));
 		$response = Centro::buscar_centro($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->$id_centro);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado el tipo de linea investigacion');
@@ -268,7 +268,7 @@ class TestController  extends BaseController{
 			return View::make('pruebas.objetivos')->with('error','No existe un centro de investigacion para ingresar objetivos');
 		}
 	}
-	
+
 	public function guardarObjetivos(){
 		$response=0;
 		$centro = e(Input::get('centro_objetivos'));
@@ -300,7 +300,7 @@ class TestController  extends BaseController{
 		if(count($response)==1){
 			$response = 0;
 			$response = Objetivos::actualizar_objetivos($id,$descripcion,$centro);
-			if(count($response) == 1){ 
+			if(count($response) == 1){
 				return Redirect::to(URL::previous())->with('mensaje','Objetivo Actualizado Insertado Correctamente');
 			}else{
 				return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -308,14 +308,14 @@ class TestController  extends BaseController{
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válido 2');
 		}
-		
+
 	}
 
 	public function eliminarObjetivos(){
 		$response=0;
 		$id = e(Input::get('id_objetivos'));
 		$response = Objetivos::eliminar_objetivos($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Objetivo Eliminado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -326,7 +326,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id_objetivos'));
 		$response = Objetivos::buscar_objetivos($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_objetivos);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado el Objetivo');
@@ -345,16 +345,16 @@ class TestController  extends BaseController{
 			return View::make('pruebas.redesSociales')->with('error','No existe un centro de investigacion para ingresar objetivos');
 		}
 	}
-	
+
 	public function guardarRedesSociales(){
-		
+
 		$response=0;
 
 		$nombre = e(Input::get('nombre_redes_sociales'));
 		$enlace = e(Input::get('enlace_redes_sociales'));
 		$usuario = e(Input::get('usuario_redes_sociales'));
 		$centro = e(Input::get('centro_redes_sociales'));
-		
+
 		$response = Centro::buscar_centro($centro);
 
 		if(count($response) == 1){
@@ -385,7 +385,7 @@ class TestController  extends BaseController{
 		if(count($response)==1){
 			$response = 0;
 			$response = RedesSociales::actualizar_redes_sociales($id, $nombre, $enlace, $usuario, $centro);
-			if(count($response) == 1){ 
+			if(count($response) == 1){
 				return Redirect::to(URL::previous())->with('mensaje','Red Social Actualizada Correctamente');
 			}else{
 				return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -393,14 +393,14 @@ class TestController  extends BaseController{
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válido');
 		}
-		
+
 	}
 
 	public function eliminarRedesSociales(){
 		$response=0;
 		$id = e(Input::get('id_redes_sociales'));
 		$response = RedesSociales::eliminar_redes_sociales($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Red Social Eliminada Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -411,7 +411,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id_redes_sociales'));
 		$response = RedesSociales::buscar_redes_sociales($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_redes_sociales);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado la red');
@@ -431,10 +431,10 @@ class TestController  extends BaseController{
 			return View::make('pruebas.beneficiarios')->with('error','No existe un centro de investigacion para ingresar objetivos');
 		}
 	}
-	
+
 	public function guardarBeneficiarios(){
 		$response=0;
-		
+
 		$nombre = e(Input::get('nombre_beneficiarios'));
 		$descripcion = e(Input::get('descripcion_beneficiarios'));
 		$centro = e(Input::get('centro_beneficiarios'));
@@ -467,7 +467,7 @@ class TestController  extends BaseController{
 		if(count($response)==1){
 			$response = 0;
 			$response = Beneficiarios::actualizar_beneficiarios($id,$nombre,$descripcion,$centro);
-			if(count($response) == 1){ 
+			if(count($response) == 1){
 				return Redirect::to(URL::previous())->with('mensaje','Beneficiario Actualizado Correctamente');
 			}else{
 				return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -475,14 +475,14 @@ class TestController  extends BaseController{
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válido');
 		}
-		
+
 	}
 
 	public function eliminarBeneficiarios(){
 		$response=0;
 		$id = e(Input::get('id_beneficiarios'));
 		$response = Beneficiarios::eliminar_beneficiarios($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Beneficiario Eliminado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -493,7 +493,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id_beneficiarios'));
 		$response = Beneficiarios::buscar_beneficiarios($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_beneficiarios);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado el Beneficiario');
@@ -513,10 +513,10 @@ class TestController  extends BaseController{
 			return View::make('pruebas.areaGestion')->with('error','No existe un centro de investigacion para ingresar objetivos');
 		}
 	}
-	
+
 	public function guardarAreaGestion(){
 		$response=0;
-		
+
 		$nombre = e(Input::get('nombre_area_gestion'));
 		$descripcion = e(Input::get('descripcion_area_gestion'));
 		$color = e(Input::get('color_area_gestion'));
@@ -551,7 +551,7 @@ class TestController  extends BaseController{
 		if(count($response)==1){
 			$response = 0;
 			$response = AreaGestion::actualizar_area_gestion($id,$nombre,$descripcion,$color,$centro);
-			if(count($response) == 1){ 
+			if(count($response) == 1){
 				return Redirect::to(URL::previous())->with('mensaje','Área de Gestion Actualizado Correctamente');
 			}else{
 				return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -559,14 +559,14 @@ class TestController  extends BaseController{
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válido');
 		}
-		
+
 	}
 
 	public function eliminarAreaGestion(){
 		$response=0;
 		$id = e(Input::get('id_area_gestion'));
 		$response = AreaGestion::eliminar_area_gestion($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Area de Gestion Eliminado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -577,7 +577,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id_area_gestion'));
 		$response = AreaGestion::buscar_area_gestion($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_area_gestion);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado el Área de Gestión');
@@ -601,10 +601,10 @@ class TestController  extends BaseController{
 			return View::make('pruebas.lineaInvestigacion')->with('error','No existe un centro de investigacion para ingresar objetivos');
 		}
 	}
-	
+
 	public function guardarLineaInvestigacion(){
 		$response=0;
-		
+
 		$descripcion = e(Input::get('descripcion_linea_investigacion'));
 		$centro = e(Input::get('centro_linea_investigacion'));
 		$tipo = e(Input::get('tipo_linea_investigacion'));
@@ -648,7 +648,7 @@ class TestController  extends BaseController{
 			if(count($response) == 1){
 				$response = 0;
 				$response = LineaInvestigacion::actualizar_linea_investigacion($id,$descripcion,$centro,$tipo);
-				if(count($response) == 1){ 
+				if(count($response) == 1){
 					return Redirect::to(URL::previous())->with('mensaje','Área de Gestion Actualizado Correctamente');
 				}else{
 					return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -659,14 +659,14 @@ class TestController  extends BaseController{
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado un Centro de Investigacion Válido');
 		}
-		
+
 	}
 
 	public function eliminarLineaInvestigacion(){
 		$response=0;
 		$id = e(Input::get('id_linea_investigacion'));
 		$response = LineaInvestigacion::eliminar_linea_investigacion($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Linea de Investigacion Eliminada Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -677,7 +677,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id_linea_investigacion'));
 		$response = LineaInvestigacion::buscar_linea_investigacion($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_linea_investigacion);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado la línea de Investigacion');
@@ -694,7 +694,7 @@ class TestController  extends BaseController{
 			$response = 0;
 			$response = AreaGestion::buscar_area_gestion($area);
 			if((count($response)!=0)and($centro==$response->centro_area_gestion)){
-				$areas = AreaGestion::where('centro_area_gestion',$centro)->lists('nombre_area_gestion','id_area_gestion'); 
+				$areas = AreaGestion::where('centro_area_gestion',$centro)->lists('nombre_area_gestion','id_area_gestion');
 				if(count($areas)!=0){
 					return View::make('pruebas.proyectos')->with('proyectos',Proyectos::listar_proyectos(3,$area,$centro))->with('areas',$areas);
 				}else{
@@ -707,10 +707,10 @@ class TestController  extends BaseController{
 			return View::make('pruebas.proyectos')->with('error','No existe un centro de investigacion para ingresar proyectos');
 		}
 	}
-	
+
 	public function guardarProyectos(){
 		$response=0;
-		
+
 		$id_proyectos = e(Input::get('id_proyectos'));
 		$nombre_proyectos = e(Input::get('nombre_proyectos'));
 		$enlace_proyectos = e(Input::get('enlace_proyectos'));
@@ -721,7 +721,7 @@ class TestController  extends BaseController{
 
 		$imagen_banner = $imagen_banner_proyectos->getClientOriginalName();
 		$imagen_min = $imagen_min_proyectos->getClientOriginalName();
-				
+
 		$response = Proyectos::insertar_proyectos($nombre_proyectos,$enlace_proyectos,$descripcion_proyectos,
 		$imagen_banner,$imagen_min, $area_gestion_proyectos);
 		if($response == 1){
@@ -748,15 +748,15 @@ class TestController  extends BaseController{
 
 		if(!is_null(Input::file('imagen_banner_proyectos'))){
 			$imagen_banner_vieja = $proyecto->imagen_banner_proyectos;
-			$imagen_banner_proyectos = Input::file('imagen_banner_proyectos');	
+			$imagen_banner_proyectos = Input::file('imagen_banner_proyectos');
 			$imagen_banner = $imagen_banner_proyectos->getClientOriginalName();
 		}else{
-			$imagen_banner = $proyecto->imagen_banner_proyectos; 
+			$imagen_banner = $proyecto->imagen_banner_proyectos;
 		}
 
 		if(!is_null(Input::file('imagen_min_proyectos'))){
 			$imagen_min_vieja = $proyecto->imagen_min_proyectos;
-			$imagen_min_proyectos = Input::file('imagen_min_proyectos');	
+			$imagen_min_proyectos = Input::file('imagen_min_proyectos');
 			$imagen_min = $imagen_min_proyectos->getClientOriginalName();
 		}else{
 			$imagen_min = $proyecto->imagen_min_proyectos;
@@ -766,7 +766,7 @@ class TestController  extends BaseController{
 		$response = Proyectos::actualizar_proyectos($id_proyectos,$nombre_proyectos,$enlace_proyectos,$descripcion_proyectos,
 			$imagen_banner,$imagen_min,$area_gestion_proyectos);
 
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 
 			if(!is_null(Input::file('imagen_banner_proyectos'))){
 				$imagen_banner_proyectos->move('img',$imagen_banner);
@@ -781,7 +781,7 @@ class TestController  extends BaseController{
 			return Redirect::to(URL::previous())->with('mensaje','Proyecto Actualizado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
-		}			
+		}
 	}
 
 	public function eliminarProyectos(){
@@ -791,7 +791,7 @@ class TestController  extends BaseController{
 		File::delete('img/'.$response->imagen_banner_proyectos);
 		File::delete('img/'.$response->imagen_min_proyectos);
 		$response = Proyectos::eliminar_proyectos($id);
-		if($response == 1){ 
+		if($response == 1){
 			return Redirect::to(URL::previous())->with('mensaje','Proyecto Eliminado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','Ha ocurrido un error');
@@ -802,7 +802,7 @@ class TestController  extends BaseController{
 		$response=0;
 		$id = e(Input::get('id_proyectos'));
 		$response = Proyectos::buscar_proyectos($id);
-		if(count($response) == 1){ 
+		if(count($response) == 1){
 			return Redirect::to(URL::previous())->with('mensaje',$response->id_proyectos);
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No se ha encontrado el Proyecto');
@@ -819,7 +819,7 @@ class TestController  extends BaseController{
 			$response = 0;
 			$response = AreaGestion::buscar_area_gestion($area);
 			if((count($response)!=0)and($centro==$response->centro_area_gestion)){
-				$areas = AreaGestion::where('centro_area_gestion',$centro)->lists('nombre_area_gestion','id_area_gestion'); 
+				$areas = AreaGestion::where('centro_area_gestion',$centro)->lists('nombre_area_gestion','id_area_gestion');
 				if(count($areas)!=0){
 					return View::make('pruebas.noticia')->with('noticias',Noticia::listar_noticias(3,$area))->with('centro',$centro)->with('area',$area);
 				}else{
@@ -875,15 +875,15 @@ public function guardarNoticia(){
 		$enlace_noticia = e(Input::get('enlace_noticia'));
 		$area_gestion_notica = e(Input::get('area_gestion_notica'));
 		$centro = e(Input::get('centro_linea_investigacion'));
-		
+
 		$noticia = Noticia::buscar_noticia($id_noticia);
-		
+
 		if(!is_null(Input::file('imagen_noticia'))){
 			$imagen_noticia_vieja = $noticia->imagen_noticia;
-			$imagen_noticia = Input::file('imagen_noticia');	
+			$imagen_noticia = Input::file('imagen_noticia');
 			$imagen_noticia_nombre = $id_noticia.'_imagenNoticia.'.$imagen_noticia->getClientOriginalExtension();
 		}else{
-			$imagen_noticia_nombre = $noticia->imagen_noticia; 
+			$imagen_noticia_nombre = $noticia->imagen_noticia;
 		}
 
 		//echo $id." ".$descripcion." ".$centro." ".$tipo;
@@ -895,11 +895,11 @@ public function guardarNoticia(){
 			if(count($response) == 1){
 				$response = 0;
 				$response = Noticia::actualizar_noticia($id_noticia, $titulo_noticia, $contenido_noticia, $enlace_noticia, $area_gestion_notica, $imagen_noticia_nombre);
-				if(count($response) == 1){ 
+				if(count($response) == 1){
 					if(!is_null(Input::file('imagen_noticia'))){
 						File::delete('img/noticia/'.$imagen_noticia_vieja);
 						$imagen_noticia->move('img/noticia',$imagen_noticia_nombre);
-				
+
 			}
 					return Redirect::to(URL::previous())->with('mensaje','Noticia Actualizado Correctamente');
 				}else{
@@ -910,7 +910,7 @@ public function guardarNoticia(){
 			}
 		}else{
 			return Redirect::to(URL::previous())->with('mensaje','No ha Seleccionado una Area de Gestión Válido');
-		}		
+		}
 	}
 	public function eliminarNoticia(){
 		$response=0;
@@ -918,7 +918,7 @@ public function guardarNoticia(){
 		$noticia = Noticia::buscar_noticia($id);
 		if(count($noticia)!=0){
 			$response = Noticia::eliminar_noticia($id);
-			if($response == 1){ 
+			if($response == 1){
 				File::delete('img/noticia/'.$noticia->imagen_noticia);
 				return Redirect::to(URL::previous())->with('mensaje','Noticia Eliminada Correctamente');
 			}else{
@@ -933,7 +933,7 @@ public function guardarNoticia(){
 		$response=0;
 		$id = e(Input::get('id_noticia'));
 		$response = Noticia::buscar_noticia($id);
-		if(count($response)!=0){ 
+		if(count($response)!=0){
 			return Redirect::to(URL::previous())->withMensaje($response->id_noticia);
 		}else{
 			return Redirect::to(URL::previous())->withMensaje('No se ha encontrado la noticia!');
@@ -961,7 +961,7 @@ public function guardarNoticia(){
 
 		public function guardarMultimedia(){
 		$response=0;
-		
+
 		$descripcion = e(Input::get('descripcion_multimedia'));
 		$enlace = e(Input::get('enlace_multimedia'));
 		$tipo = e(Input::get('tipo_multimedia'));
@@ -1037,7 +1037,7 @@ public function guardarNoticia(){
 		$response=0;
 		$id = e(Input::get('id_multimedia'));
 		$response = Multimedia::buscar_multimedia($id);
-		if(count($response)!=0){ 
+		if(count($response)!=0){
 			return Redirect::to(URL::previous())->withMensaje($response->id_multimedia);
 		}else{
 			return Redirect::to(URL::previous())->withMensaje('No se ha encontrado multimedia!');
@@ -1049,8 +1049,8 @@ public function guardarNoticia(){
 		$response = 0;
 		$response = Centro::buscar_centro($centro);
 		if(count($response)!=0){
-			$areas = AreaGestion::where('centro_area_gestion',$centro)->lists('nombre_area_gestion','id_area_gestion'); 
-			//$areas = AreaGestion::listar_area_gestion(3,$centro); 
+			$areas = AreaGestion::where('centro_area_gestion',$centro)->lists('nombre_area_gestion','id_area_gestion');
+			//$areas = AreaGestion::listar_area_gestion(3,$centro);
 			if(count($areas)!=0){
 				$tipos= TipoUsuario::lists('descripcion_tipo_usuario', 'id_tipo_usuario');
 				if(count($tipos)!=0){
@@ -1060,7 +1060,7 @@ public function guardarNoticia(){
 				}
 			}else{
 				return View::make('pruebas.usuario')->with('error','No existen áreas de gestión');
-			}		
+			}
 		}else{
 			return View::make('pruebas.usuario')->with('error','No existe un centro de investigacion para ingresar proyectos');
 		}
@@ -1095,7 +1095,7 @@ public function guardarNoticia(){
 			return Redirect::to(URL::previous())->withMensaje('Usuario Insertado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->withError('Ha ocurrido un error');
-		}	
+		}
 	}
 
 	public function actualizarUsuario(){
@@ -1107,7 +1107,7 @@ public function guardarNoticia(){
 		$nick_usuario = e(Input::get('nick_usuario'));
 		$nombres_usuario = e(Input::get('nombres_usuario'));
 		$apellidos_usuario = e(Input::get('apellidos_usuario'));
-		$contrasena = e(Input::get('contrasena'));
+		$contrasena = Hash::make(e(Input::get('contrasena')));
 		$correo_usuario = e(Input::get('correo_usuario'));
 		$telefono = e(Input::get('telefono'));
 		$genero_usuario = e(Input::get('genero_usuario'));
@@ -1116,15 +1116,15 @@ public function guardarNoticia(){
 
 		if(!is_null(Input::file('img_formal_usuario'))){
 			$img_formal_usuario_vieja = $usuario->img_formal_usuario;
-			$img_formal_usuario = Input::file('img_formal_usuario');	
+			$img_formal_usuario = Input::file('img_formal_usuario');
 			$img_formal_usuario_nombre = $id_usuario.'_imgFormal.'.$img_formal_usuario->getClientOriginalExtension();
 		}else{
-			$img_formal_usuario_nombre = $usuario->img_formal_usuario; 
+			$img_formal_usuario_nombre = $usuario->img_formal_usuario;
 		}
 
 		if(!is_null(Input::file('img_informal_usuario'))){
 			$img_informal_usuario_vieja = $usuario->img_informal_usuario;
-			$img_informal_usuario = Input::file('img_informal_usuario');	
+			$img_informal_usuario = Input::file('img_informal_usuario');
 			$img_informal_usuario_nombre = $id_usuario.'_imgInformal.'.$img_informal_usuario->getClientOriginalExtension();
 		}else{
 			$img_informal_usuario_nombre = $usuario->img_informal_usuario;
@@ -1136,15 +1136,15 @@ public function guardarNoticia(){
 
 		$response = 0;
 		$response = User::actualizar_usuario($id_usuario,$cedula,$nick_usuario,$nombres_usuario,
-			$apellidos_usuario,$contrasena,$correo_usuario, $telefono, $genero_usuario, 
+			$apellidos_usuario,$contrasena,$correo_usuario, $telefono, $genero_usuario,
 			$img_formal_usuario_nombre, $img_informal_usuario_nombre, $fecha_nacimiento,
 			 $area_usuario, $tipo_usuario);
 
-		if(count($response) == 1){ 		
+		if(count($response) == 1){
 			if(!is_null(Input::file('img_formal_usuario'))){
 				File::delete('img/usuario/'.$img_formal_usuario_vieja);
 				$img_formal_usuario->move('img/usuario',$img_formal_usuario_nombre);
-				
+
 			}
 
 			if(!is_null(Input::file('img_informal_usuario'))){
@@ -1155,14 +1155,14 @@ public function guardarNoticia(){
 			return Redirect::to(URL::previous())->withMensaje('Usuario Actualizado Correctamente');
 		}else{
 			return Redirect::to(URL::previous())->withMensaje('Ha ocurrido un error');
-		}			
+		}
 	}
 
 	public function buscarUsuario(){
 		$response=0;
 		$id = e(Input::get('id_usuario'));
 		$response = User::buscar_usuario($id);
-		if(count($response)!=0){ 
+		if(count($response)!=0){
 			return Redirect::to(URL::previous())->withMensaje($response->id_usuario);
 		}else{
 			return Redirect::to(URL::previous())->withMensaje('No se ha encontrado usuario!');
@@ -1213,7 +1213,7 @@ public function guardarNoticia(){
 			$usuario_id_usuario = e(Input::get('usuario_informe'));
 			$archivo_informe_nombre = $id_informe.'_archivoInforme.'.$archivo_informe->getClientOriginalExtension();
 			$response = 0;
-			$response = Informe::insertar_informe($id_informe, $descripcion_informe, $codigo_informe, $archivo_informe_nombre, $usuario_id_usuario);			
+			$response = Informe::insertar_informe($id_informe, $descripcion_informe, $codigo_informe, $archivo_informe_nombre, $usuario_id_usuario);
 			if(count($response)!=0){
 				$archivo_informe->move('img/informe',$archivo_informe_nombre);
 				return Redirect::to(URL::previous())->withMensaje('Informe insertado correctamente.');
@@ -1232,7 +1232,7 @@ public function guardarNoticia(){
 			$descripcion_informe = e(Input::get('descripcion_informe'));
 			$codigo_informe = e(Input::get('codigo_informe'));
 			$usuario_id_usuario = e(Input::get('usuario'));
-			
+
 
 			$informe = Informe::buscar_informe($id_informe);
 			if(!is_null(Input::file('archivo_informe'))){
@@ -1240,13 +1240,13 @@ public function guardarNoticia(){
 				$archivo_informe = Input::file('archivo_informe');
 				$archivo_informe_nombre = $id_informe.'_archivoInforme.'.$archivo_informe->getClientOriginalExtension();
 			}else{
-				$archivo_informe_nombre = $informe->archivo_informe; 
+				$archivo_informe_nombre = $informe->archivo_informe;
 			}
 
 
 			$response = 0;
 			$response = Informe::actualizar_informe($id_informe, $descripcion_informe, $codigo_informe, $archivo_informe_nombre, $usuario_id_usuario);
-			if(count($response) == 1){ 		
+			if(count($response) == 1){
 				if(!is_null(Input::file('archivo_informe'))){
 					File::delete('img/informe/'.$archivo_informe_viejo);
 					$archivo_informe->move('img/informe',$archivo_informe_nombre);
@@ -1254,17 +1254,17 @@ public function guardarNoticia(){
 				return Redirect::to(URL::previous())->withMensaje('Informe Actualizado Correctamente');
 			}else{
 				return Redirect::to(URL::previous())->withMensaje('Ha ocurrido un error');
-			}	
+			}
 		}else{
 			return Redirect::to(URL::previous())->withError('No es un usuario válido!');
-		}					
+		}
 	}
 
 	public function buscarInforme(){
 		$response=0;
 		$id_informe=e(Input::get('id_informe'));
 		$response = Informe::buscar_informe($id_informe);
-		if(count($response)!=0){ 
+		if(count($response)!=0){
 			return Redirect::to(URL::previous())->withMensaje($response->id_informe);
 		}else{
 			return Redirect::to(URL::previous())->withMensaje('No se ha encontrado informe '.$id_informe.'!');
@@ -1276,7 +1276,7 @@ public function guardarNoticia(){
 		$id_informe = e(Input::get('id_informe'));
 		$response = Informe::buscar_informe($id_informe);
 		//borrando archivos
-		
+
 		if(count($response)!=0){
 			File::delete('img/informe/'.$response->archivo_informe);
 			$response=0;
