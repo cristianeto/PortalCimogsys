@@ -3,7 +3,7 @@
   Informes
 @stop
 <body class=" adminMisionVision">
-@if (Session::has('mensaje'))		
+@if (Session::has('mensaje'))
 		<div>
 			<span>{{ Session::get('mensaje') }}</span>
 		</div>
@@ -13,15 +13,15 @@
 		<div class="ed-item web-50 main-end cerrarSesion"><a class="cerrar" href="{{ URL::to('/logout') }}">Cerrar Sesión</a></div>
 	</div>
  	<header class="ed-container full cross-center">
- 		<div class="ed-item movil-50 tipoUsuario ">Administrador</div>	
- 		<div class="ed-item movil-50 cross-center main-end"> {{ Auth::user()->nombres_usuario}} {{Auth::user()->apellidos_usuario }} &nbsp &nbsp 
-			
+ 		<div class="ed-item movil-50 tipoUsuario ">Administrador</div>
+ 		<div class="ed-item movil-50 cross-center main-end"> {{ Auth::user()->nombres_usuario}} {{Auth::user()->apellidos_usuario }} &nbsp &nbsp
+
 			@if(Auth::user()->img_formal_usuario=="")
  				{{ HTML::image('img/usuario1.jpg', 'alt=logo centro CIMOGSYS', array( 'class' => 'fotoSesion' )) }}
  			@else
  				{{ HTML::image('img/usuario/'.Auth::user()->img_formal_usuario, 'alt=logo centro CIMOGSYS', array( 'class' => 'fotoSesion' )) }}
 			@endif
- 		</div>	
+ 		</div>
  	</header>
  	<main class="ed-container full">
  		<div class="ed-item movil-25 lateral no-padding">
@@ -48,7 +48,7 @@
  						</div>-->
  					</div>
  					<div class="ed-container movil-2-3 no-padding main-center">
-					 		
+
  					</div>
  					<div class="ed-container movil-1-3 no-padding main-center">
 						@if(count($informes)>0)
@@ -60,11 +60,11 @@
 										{{ Form::label('codigo_informe','Identificador')}}
 										{{ Form::text('codigo_informe', $informe->codigo_informe, array('readonly', 'class'=>'ed-item')) }}
 										{{ Form::label('descripcion_informe','Descripción')}}
-										{{ Form::text('descripcion_informe', $informe->descripcion_informe, array('readonly', 'class'=>'ed-item')) }}
+										{{ Form::text('descripcion_informe', $informe->descripcion_informe, array('class'=>'ed-item')) }}
 										{{ Form::label('fecha_entrega_informe','FechaEntrega')}}
-										{{ Form::text('fecha_entrega_informe', $informe->fecha_entrega_informe, array('readonly', 'class'=>'ed-item')) }}
+										{{ Form::text('fecha_entrega_informe', $informe->fecha_entrega_informe, array('class'=>'ed-item')) }}
 										{{ Form::label('fecha_modificacion_informe','FechaModificacion')}}
-										{{ Form::text('fecha_modificacion_informe', $informe->fecha_modificacion_informe, array('readonly', 'class'=>'ed-item')) }}
+										{{ Form::text('fecha_modificacion_informe', $informe->fecha_modificacion_informe, array('class'=>'ed-item')) }}
 										{{ Form::label('archivo_informe','Archivo')}}
 										{{ link_to_asset('img/informe/'.$informe->archivo_informe, $title='Informe archivo'.$informe->id_informe, $attributes = array('download'=>$informe->archivo_informe));}}
 										{{ Form::file('archivo_informe', array('readonly', 'class'=>'ed-item')) }}<br>
@@ -82,10 +82,10 @@
 							<div class="ed-item main-start">
 								<p>No existen informes para este usuario</p>
 							</div>
-						@endif		 				
+						@endif
  					</div>
  				</div>
- 				
+
  			</div>
  		</div>
  	</main>

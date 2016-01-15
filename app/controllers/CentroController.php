@@ -13,4 +13,14 @@ class CentroController  extends BaseController{
 			return View::make('admin/centro')->withError('No existe el centro...');
 		}
 	}
+
+	public function visualizarError404(){
+		$centro = 0;
+		$centro = Centro::buscar_centro(3);//Consulto mi centro... en nuestro caso el centro cimogsys con codigo 3
+		if(count($centro)!=0){
+				return View::make('404')->withCentro($centro);
+		}else{
+			return View::make('404')->withError('No existe el centro...');
+		}
+	}
 }

@@ -48,13 +48,14 @@
 		{{ HTML::script('js/script.js') }}
 		{{ HTML::script('dataTables/jquery-1.12.0.min.js') }}
 		{{ HTML::script('dataTables/jquery.dataTables.min.js') }}
+		{{ HTML::script('dataTables/miDataTables.js') }}
 	@show
 </head>
 @section('body')
 	@yield('header')
 	@yield('main')
 	@section('footer')
-
+  
 	@show
 @show
 </html>

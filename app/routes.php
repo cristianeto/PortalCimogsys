@@ -94,6 +94,8 @@ Route::get('/pasante/editar',array('as'=>'pasanteEditar','uses'=>'UserController
 Route::get('/pasante/reportes',array('as'=>'pasanteReportes','uses'=>'InformesController@visualizarPasanReportes'));
 /* FIN PAGINAS PASANTE */
 
+/* Error 404*/
+Route::get('/404',array('as'=>'error404','uses'=>'CentroController@visualizarError404'));
 
 //Pruebas
 Route::group(array('prefix'=>'pruebas'),function(){

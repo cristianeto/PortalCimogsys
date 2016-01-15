@@ -455,3 +455,25 @@ td>i{
 .panel .detalle{
 	margin-bottom: 2em;
 }
+.ed-container > .ed-item.ingreso{
+	margin-bottom: 2em;
+}
+.cuadroCasa{
+	border-left:2em solid #2e4e77;
+	border-top:1px solid #2e4e77;
+	border-right:1px solid #2e4e77;
+	border-bottom:1px solid #2e4e77;
+}
+.opciones>ul{
+	list-style:none;
+}
+.opciones{
+	color:#b05c5e;
+}
+.home{
+	color:#fff;
+	background: #2e4e77;
+}
+.noExiste{
+	min-height: 70vh;
+}

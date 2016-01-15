@@ -35,7 +35,7 @@
  		<div class="ed-item movil-75 no-padding">
  			<div class="ed-container movil main-center menuCabecera">
  				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera"><a href="{{URL::Route('acadPerfil')}}"><i class="fa fa-user fa-3x"></i><small>Perfil</small></a></div></div>
- 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="#"><i class="fa fa-files-o fa-3x"></i><small>Reportes</small></a></div></div>
+ 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="{{URL::Route('acadReportes')}}"><i class="fa fa-files-o fa-3x"></i><small>Reportes</small></a></div></div>
  			</div>
  			<div class="ed-container movil ">
  				<div class="ed-item movil">
@@ -51,7 +51,9 @@
                       <th>#</th>
                       <th>Identificador</th>
                       <th>Descripción</th>
-                      <th>Responsable</th>
+                      <th>Usuario</th>
+                      <th>Tipo Usuario</th>
+                      <th>Área Gestión</th>
                       <th>Descargar</th>
                   </tr>
               </thead>
@@ -60,7 +62,9 @@
                       <th>#</th>
                       <th>Identificador</th>
                       <th>Descripción</th>
-                      <th>Responsable</th>
+                      <th>Usuario</th>
+                      <th>Tipo Usuario</th>
+                      <th>Área Gestión</th>
                       <th>Descargar</th>
                   </tr>
               </tfoot>
@@ -68,20 +72,14 @@
                 @foreach($informes as $informe)
                 <tr>
                     <td></td>
-                    <td>{{$informe->id_informe}}</td>
+                    <td>{{$informe->codigo_informe}}</td>
                     <td>{{$informe->descripcion_informe}}</td>
-                    @foreach ($usuarios as $usuario)
-                      @if($usuario->id_usuario==$informe->usuario_id_usuario)
-                        <td>{{$usuario->nombres_usuario}} {{$usuario->apellidos_usuario}}</td>
-                      @else
-
-                      @endif
-                    @endforeach
+                    <td>{{$informe->nombres_usuario}} {{$informe->apellidos_usuario}}</td>
+                    <td>{{$informe->descripcion_tipo_usuario}}</td>
+                    <td>{{$informe->nombre_area_gestion}}</td>
                     <td>{{ link_to_asset('img/informe/'.$informe->archivo_informe, $title='Descargar ', $attributes = array('download'=>$informe->archivo_informe));}}<i class="fa fa-cloud-download fa-2x espacio"></i></td>
-
                 </tr>
                 @endforeach
-
                 </tbody>
               </table>
             </div>
@@ -91,23 +89,5 @@
  			</div>
  		</div>
  	</main>
-  <script type="text/javascript">
-  $(document).ready(function() {
-  var t = $('#example').DataTable( {
-    "language": {
-        "url": "/cimogsys/public/dataTables/DataTablesSpanish.json"
-
-    },
-    "order": [[0, "asc"]],
-    "paging": false
-  } );
-
-  t.on( 'order.dt search.dt', function () {
-      t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-          cell.innerHTML = i+1;
-      } );
-  } ).draw();
-} );
-  </script>
 </body>
 @stop

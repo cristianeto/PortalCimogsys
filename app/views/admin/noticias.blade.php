@@ -5,7 +5,7 @@
   Noticias
 @stop
 <body class=" adminMisionVision">
-@if (Session::has('mensaje'))		
+@if (Session::has('mensaje'))
 		<div>
 			<span>{{ Session::get('mensaje') }}</span>
 		</div>
@@ -15,15 +15,15 @@
 		<div class="ed-item web-50 main-end cerrarSesion"><a class="cerrar" href="{{ URL::to('/logout') }}">Cerrar Sesión</a></div>
 	</div>
  	<header class="ed-container full cross-center">
- 		<div class="ed-item movil-50 tipoUsuario ">Administrador</div>	
- 		<div class="ed-item movil-50 cross-center main-end"> {{ Auth::user()->nombres_usuario}} {{Auth::user()->apellidos_usuario }} &nbsp &nbsp 
-			
+ 		<div class="ed-item movil-50 tipoUsuario ">Administrador</div>
+ 		<div class="ed-item movil-50 cross-center main-end"> {{ Auth::user()->nombres_usuario}} {{Auth::user()->apellidos_usuario }} &nbsp &nbsp
+
 			@if(Auth::user()->img_formal_usuario=="")
  				{{ HTML::image('img/usuario1.jpg', 'alt=logo centro CIMOGSYS', array( 'class' => 'fotoSesion' )) }}
  			@else
  				{{ HTML::image('img/usuario/'.Auth::user()->img_formal_usuario, 'alt=logo centro CIMOGSYS', array( 'class' => 'fotoSesion' )) }}
 			@endif
- 		</div>	
+ 		</div>
  	</header>
  	<main class="ed-container full">
  		<div class="ed-item movil-25 lateral no-padding">
@@ -49,11 +49,11 @@
  						</div>-->
  					</div>
  					<div class="ed-container movil-2-3 no-padding main-center">
-						
+
  						@if($centro!=null)
 			 				{{ Form::open(array('url'=>'/pruebas/guardarNoticia', 'files'=>'true')) }}
-								<span>	
-									{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }} 
+								<span>
+									{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }}
 								</span>
 								<label for="titulo">Título</label>
 								{{ Form::text('titulo_noticia', '', array('placeholder'=>'Ingrese un título para la noticia','class'=>'ed-item base')) }}<br>
@@ -64,7 +64,7 @@
 								<label for="area">Área</label>
 								<span>
 									{{ Form::select('area_gestion_notica', $areas, '', array('class'=>'ed-item base')) }}
-								</span> 
+								</span>
 								<label for="imagen_noticia">Imagen</label>
 								{{ Form::file('imagen_noticia') }}<br>
 								<br>
@@ -76,20 +76,23 @@
 						</div>
  						@endif
  					</div>
- 					<hr>
  					<div class="ed-container base movil-2-3">
 		 				@if(count($noticias)>0)
 		 					<?php $cont=0 ?>
-							@foreach($noticias as $noticia)   
+							@foreach($noticias as $noticia)
 							<div class="ed-item main-start">
 								{{ Form::open(array('url'=>'/pruebas/actualizarNoticia','class'=>'ed-container', 'files'=>'true')) }}
-										<span> 
-											{{ Form::hidden('id_noticia', $noticia->id_noticia, array('readonly')) }} 
+										<span>
+											{{ Form::hidden('id_noticia', $noticia->id_noticia, array('readonly')) }}
 										</span>
-										<span> 
-										{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }} 
+										<span>
+										{{ Form::hidden('centro_linea_investigacion', $centro->id_centro, array('readonly')) }}
 										</span>
-										<label class="ed-item base" for="titulo_noticia">{{(++$cont)}}. Título</label>
+                    <div class="ed-item">
+                      <hr>
+                    </div>
+                    {{++$cont}}.
+										<label class="ed-item base" for="titulo_noticia"> Título</label>
 										{{ Form::text('titulo_noticia', $noticia->titulo_noticia, array('class'=>'ed-item base')) }}
 										<label class="ed-item base" for="contenido_noticia">Contenido</label>
 										{{ Form::textarea('contenido_noticia', $noticia->contenido_noticia, array('class'=>'ed-item base')) }}
@@ -119,7 +122,7 @@
 						@endif
  					</div>
  				</div>
- 				
+
  			</div>
  		</div>
  	</main>

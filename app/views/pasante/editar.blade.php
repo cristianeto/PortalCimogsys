@@ -2,7 +2,7 @@
 @extends('plantilla.adminPlantilla')
 
 @section('titulo')
-  Edpasante
+  Editar
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))
@@ -29,14 +29,14 @@
  		<div class="ed-item movil-25 lateral no-padding">
  			<h4 class="bienvenido">Bienvenido</h4>
  			<ul class="ed-container cross-start menuLateral">
- 				<li class="ed-item main-start"><a class="menu-lateral-activo" href="{{URL::Route('pasantePerfil')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Perfil</a></li>
- 				<li class="ed-item main-start"><a href="{{URL::Route('pasanteEditar')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Editar perfil</a></li>
+ 				<li class="ed-item main-start"><a href="{{URL::Route('pasantePerfil')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Perfil</a></li>
+ 				<li class="ed-item main-start"><a class="menu-lateral-activo" href="{{URL::Route('pasanteEditar')}}">{{ HTML::image('img/icono-cimogsys-negro.png', 'alt=icono CIMOGSYS en negro', array( 'class' => 'iconoMenuLateral' )) }}Editar perfil</a></li>
  			</ul>
  		</div>
  		<div class="ed-item movil-75 no-padding">
  			<div class="ed-container movil main-center menuCabecera">
- 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="{{URL::Route('acadPerfil')}}"><i class="fa fa-user fa-3x"></i><small>Perfil</small></a></div></div>
- 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera"><a href="#"><i class="fa fa-files-o fa-3x"></i><small>Reportes</small></a></div></div>
+ 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="{{URL::Route('pasantePerfil')}}"><i class="fa fa-user fa-3x"></i><small>Perfil</small></a></div></div>
+ 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera"><a href="{{URL::Route('pasanteReportes')}}"><i class="fa fa-files-o fa-3x"></i><small>Reportes</small></a></div></div>
  			</div>
  			<div class="ed-container movil ">
  				<div class="ed-item movil">

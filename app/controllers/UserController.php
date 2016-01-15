@@ -266,15 +266,15 @@ class UserController extends BaseController {
           if(count($areas)>0){
             $tipos = TipoUsuario::lists('descripcion_tipo_usuario','id_tipo_usuario');
             if(count($tipos)>0){
-  				    return View::make('acad/editar')->withCentro($centro)->withAreas($areas)->withTipos($tipos);
+  				    return View::make('pasante/editar')->withCentro($centro)->withAreas($areas)->withTipos($tipos);
             }else{
-              return View::make('acad/editar')->withError('No existen tipos de usuario en el centro...');
+              return View::make('pasante/editar')->withError('No existen tipos de usuario en el centro...');
             }
           }else{
-              return View::make('acad/editar')->withError('No existen áreas de gestión en el centro...');
+              return View::make('pasante/editar')->withError('No existen áreas de gestión en el centro...');
           }
   		}else{
-  			return View::make('acad/editar')->withError('No existe el centro...');
+  			return View::make('pasante/editar')->withError('No existe el centro...');
   		}
     }
 }

@@ -1,8 +1,14 @@
 @extends('plantilla.plantilla')
+@section('metas')
+@parent
+@stop
 @section('titulo')
   Iniciar Sesión
 @stop
+@section('body')
 <body class="iniciarSesion">
+  @parent
+  @section('header')
 <header class="ed-container full">
     <div class="ed-item web-30 tablet-35 movil-30 cross-center"><a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/headerLogo.png', 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a></div>
     <div class="ed-item web-70 tablet-65 movil-70 main-end cross-center">
@@ -22,6 +28,8 @@
       </ul>
     </div>
   </header>
+  @stop
+  @section('main')
 	<main class="ed-container full main-center cross-center">
 		<div class="ed-item base movil-5-8 tablet-1-3 cuadro main-center">
 			<div class="ed-item movil-50 main-center titulo">
@@ -40,7 +48,7 @@
 					<a class="olvido" href="#">Olvidaste tu contraseña?</a>
 					<br>
 				</div>
-				@if (Session::has('mensaje'))		
+				@if (Session::has('mensaje'))
 					<div class="ed-item main-end cross-center">
 						<i class='fa fa-exclamation-triangle'></i>&nbsp;<span class="error">{{ Session::get('mensaje') }}</span>
 						&nbsp;
@@ -55,4 +63,6 @@
 			</div>
 		</div>
 	</main>
+  @stop
 </body>
+@stop

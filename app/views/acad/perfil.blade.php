@@ -15,7 +15,7 @@
 		<div class="ed-item web-50 main-end cerrarSesion"><a class="cerrar" href="{{ URL::to('/logout') }}">Cerrar Sesión</a></div>
 	</div>
  	<header class="ed-container full cross-center">
- 		<div class="ed-item movil-50 tipoUsuario ">Pasante</div>
+ 		<div class="ed-item movil-50 tipoUsuario ">Comité académico</div>
  		<div class="ed-item movil-50 cross-center main-end"> {{ Auth::user()->nombres_usuario}} {{Auth::user()->apellidos_usuario }} &nbsp &nbsp
 
 			@if(Auth::user()->img_formal_usuario=="")
