@@ -50,7 +50,7 @@
  			          <li>04. Utilizando el buscador de sitio Web.</li>
  			        </ul>
  			      </div>
- 			      <div class="ed-item base cross-center main-center movil-1-3 home "><i class="fa fa-home fa-4x"></i></div>
+ 			      <div class="ed-item base cross-center main-center movil-1-3 casita "><i class="fa fa-home fa-4x"></i></div>
  			    </div>
  			  </div>
 
