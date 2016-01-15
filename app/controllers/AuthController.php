@@ -40,7 +40,7 @@ class AuthController extends BaseController {
                         return Redirect::to('/usuarios/index');
                         break;
                     case 7://Comité académico
-                        return Redirect::to('/academico/perfil');
+                        return Redirect::to('/acad/perfil');
                         break;
                     case 5://Pasante
                         return Redirect::to('/pasante/perfil');

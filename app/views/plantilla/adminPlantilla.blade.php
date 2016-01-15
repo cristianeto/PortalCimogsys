@@ -41,10 +41,13 @@
     {{ HTML::style('css/styles.css'); }}
     {{ HTML::style('css/miEstilo.css'); }}
     {{ HTML::style('fonts/font-awesome-4.5.0/css/font-awesome.css'); }}
+    {{ HTML::style('dataTables/jquery.dataTables.min.css'); }}
 	@show
 	@section('scripts')
 		{{ HTML::script('js/jquery.js') }}
 		{{ HTML::script('js/script.js') }}
+		{{ HTML::script('dataTables/jquery-1.12.0.min.js') }}
+		{{ HTML::script('dataTables/jquery.dataTables.min.js') }}
 	@show
 </head>
 @section('body')

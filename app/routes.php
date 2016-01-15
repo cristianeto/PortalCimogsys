@@ -85,10 +85,13 @@ Route::get('/admin/multimedia',array('as'=>'admMultimedia','uses'=>'MultimediaCo
 /* INICIO PAGINAS COMITE ACADEMICO */
 Route::get('/acad/perfil',array('as'=>'acadPerfil','uses'=>'UserController@visualizarAcadPerfil'));
 Route::get('/acad/editar',array('as'=>'acadEditar','uses'=>'UserController@visualizarAcadEditar'));
+Route::get('/acad/reportes',array('as'=>'acadReportes','uses'=>'InformesController@visualizarAcadReportes'));
 /* FIN PAGINAS COMITE ACADEMICO */
+
 /* INICIO PAGINAS PASANTE */
 Route::get('/pasante/perfil',array('as'=>'pasantePerfil','uses'=>'UserController@visualizarPasanPerfil'));
 Route::get('/pasante/editar',array('as'=>'pasanteEditar','uses'=>'UserController@visualizarPasanEditar'));
+Route::get('/pasante/reportes',array('as'=>'pasanteReportes','uses'=>'InformesController@visualizarPasanReportes'));
 /* FIN PAGINAS PASANTE */
 
 

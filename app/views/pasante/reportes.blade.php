@@ -2,7 +2,7 @@
 @extends('plantilla.adminPlantilla')
 
 @section('titulo')
-  Perfil
+  Reportes
 @stop
 <body class=" adminMisionVision">
 @if (Session::has('mensaje'))
@@ -35,8 +35,8 @@
  		</div>
  		<div class="ed-item movil-75 no-padding">
  			<div class="ed-container movil main-center menuCabecera">
- 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="{{URL::Route('acadPerfil')}}"><i class="fa fa-user fa-3x"></i><small>Perfil</small></a></div></div>
- 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera"><a href="{{URL::Route('acadReportes')}}"><i class="fa fa-files-o fa-3x"></i><small>Reportes</small></a></div></div>
+ 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera"><a href="{{URL::Route('acadPerfil')}}"><i class="fa fa-user fa-3x"></i><small>Perfil</small></a></div></div>
+ 				<div class="ed-item base movil-1-6 main-center"><div class="iconoMenuCabecera menu-cabecera-activo"><a href="#"><i class="fa fa-files-o fa-3x"></i><small>Reportes</small></a></div></div>
  			</div>
  			<div class="ed-container movil ">
  				<div class="ed-item movil">

@@ -413,8 +413,8 @@ div>div>label> a{
 	color: #fff;
 	text-transform: uppercase;
 }
-.informacion>i{
-	padding-left: .5em;
+.informacion{
+	padding: .25em;
 }
 .ed-item.detalle > p{
 	text-align: center;
@@ -441,4 +441,17 @@ div>div>label> a{
 .detalle>.ed-container{
 	padding-top: 1em;
 	padding-bottom: 2em;
+}
+form>.ed-item:last-child{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+tr>th,
+td>i{
+	text-align: center;
+}
+
+.panel .detalle{
+	margin-bottom: 2em;
 }
