@@ -1,6 +1,23 @@
 @extends('plantilla.plantilla')
 @section('metas')
 @parent
+<!--Google-->
+<meta itemprop="name" content="Centro de Investigación CIMOGSYS"/>
+<meta itemprop="description" content="Centro de investigación en modelos de Gestión y Sistemas Informáticos"/> <meta itemprop="image" content="img/headerLogo.png"/>
+<meta itemprop="author" content="CIMOGSYS"/>
+<!--Open Graph data (Facebook)-->
+<meta property="og:title" content="Centro de Investigación CIMOGSYS"/>
+<meta property="og:url" content="http://www.fausto.bugs3.com"/>
+<meta property="og:image" content="img/headerLogo.png"/>
+<meta property="og:description" content="Centro de investigación en modelos de Gestión y Sistemas Informáticos"/>
+<meta property="og:site_name" content="CIMOGSYS.COM"/>
+<!--Twitter-->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@Centro_Cimogsys"/>
+<meta name="twitter:title" content="Centro de Investigación CIMOGSYS"/>
+<meta name="twitter:description" content="Centro de investigación en modelos de Gestión y Sistemas Informáticos"/>
+<meta name="twitter:creator" content="@autor"/>
+<meta name="twitter:image:src" content="img/headerLogo.png"/>
 @stop
 @section('titulo')
  Inicio
@@ -47,7 +64,7 @@
                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
 
                 </p>
-                <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+                <label class="main-end verMasNoticia" for=""><a href="http://fade.espoch.edu.ec/" target="_blank">Ver más...</a></label>
                 </div>
               </div>
             </div>
@@ -66,7 +83,7 @@
                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
 
                 </p>
-                <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+                <label class="main-end verMasNoticia" for=""><a href="http://fie.cimogsys.com/" target="_blank">Ver más...</a></label>
                 </div>
               </div>
             </div>
@@ -85,7 +102,7 @@
                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
 
                 </p>
-                <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+                <label class="main-end verMasNoticia" for=""><a href="http://revista.cimogsys.com/" target="_blank">Ver más...</a></label>
                 </div>
               </div>
             </div>
@@ -104,7 +121,7 @@
                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
 
                 </p>
-                <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+                <label class="main-end verMasNoticia" for=""><a href="http://redconocimiento.cimogsys.com/" target="_blank">Ver más...</a></label>
                 </div>
               </div>
             </div>
@@ -118,12 +135,12 @@
                 </div>
                 <div class="ed-item base movil-4-6 car">
                   <div class="padding-2">
-                    <h1 class="tituloNoticia">Sistema de Gestión de Acreditación</h1>
+                    <h1 class="tituloNoticia">Sistema de Gestión de Calidad</h1>
                   <p>
                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio molestiae vero fugiat commodi tempore natus laudantium corporis, totam consequuntur necessitatibus. Repellat illum vero sint porro iure expedita, ipsam architecto ratione.
 
                   </p>
-                  <label class="main-end verMasNoticia" for=""><a href="#">Ver más...</a></label>
+                  <label class="main-end verMasNoticia" for=""><a href="http://sgc.fade.cimogsys.com/" target="_blank">Ver más...</a></label>
                   </div>
                 </div>
               </div>

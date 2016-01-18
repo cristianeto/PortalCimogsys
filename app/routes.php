@@ -41,6 +41,7 @@ Route::get('/proyectos',array('as'=>'proyectos','uses'=>'ProyectosController@vis
 Route::get('/contactos',array('as'=>'contactos','uses'=>'ContactosController@visualizarContactos'));
 //Página Noticias
 Route::get('/noticias',array('as'=>'noticias','uses'=>'NoticiaController@visualizarNoticias'));
+Route::get('/visualizarNoticia',array('as'=>'visualizarNoticia','uses'=>'NoticiaController@visualizarNoticia'));
 //Página Iniciar Sesión
 Route::get('/iniciarSesion',array('as'=>'iniciarSesion','uses'=>'UserController@visualizarIniciarSesion'));
 Route::post('/login',['uses'=>'AuthController@login','before'=>'guest']);

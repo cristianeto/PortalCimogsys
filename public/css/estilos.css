@@ -2756,7 +2756,14 @@ body {
 
 @media screen and (min-width: 1024px) {
   body {
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100%;
+    max-height: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body.visualizarNoticia  {
+    min-height: 100vh !important;
     min-height: 100%;
     max-height: 100%;
   }
@@ -3420,8 +3427,8 @@ footer .redes img {
   justify-content: center;
   align-items: center;
   background: #fff;
-  padding-top: 1em; 
-  padding-bottom: 1em; 
+  padding-top: 1em;
+  padding-bottom: 1em;
   margin-right: 1em;
   margin-left: 1em;
 }

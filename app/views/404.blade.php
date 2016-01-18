@@ -5,7 +5,7 @@
   Error 404
 @stop
 @section('body')
-<body class="desarrollo adminMisionVision">
+<body class=" adminMisionVision">
 @parent
 @if (Session::has('mensaje'))
 		<div>
@@ -50,7 +50,7 @@
  			          <li>04. Utilizando el buscador de sitio Web.</li>
  			        </ul>
  			      </div>
- 			      <div class="ed-item base cross-center main-center movil-1-3 casita "><i class="fa fa-home fa-4x"></i></div>
+ 			      <div class="ed-item base cross-center main-center movil tablet-1-3 casita "><a href="#"><i class="fa fa-home fa-4x"></i></a></div>
  			    </div>
  			  </div>
 

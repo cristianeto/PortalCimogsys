@@ -18,28 +18,12 @@
   	<meta name="geo.position" content="-1.65613;-78.6814"/>
   	<meta name="ICBM" content="-1.65613, -78.6814"/>
   	<!--meta etiquetas sociales-->
-  	<!--Google-->
-  	<meta itemprop="name" content="Centro de Investigación CIMOGSYS"/>
-  	<meta itemprop="description" content="Centro de investigación en modelos de Gestión y Sistemas Informáticos"/> <meta itemprop="image" content="img/headerLogo.png"/>
-  	<meta itemprop="author" content="CIMOGSYS"/>
-  	<!--Open Graph data (Facebook)-->
-  	<meta property="og:title" content="Centro de Investigación CIMOGSYS"/>
-  	<meta property="og:url" content="http://www.fausto.bugs3.com"/>
-  	<meta property="og:image" content="img/headerLogo.png"/>
-  	<meta property="og:description" content="Centro de investigación en modelos de Gestión y Sistemas Informáticos"/>
-  	<meta property="og:site_name" content="CIMOGSYS.COM"/>
-  	<!--Twitter-->
-  	<meta name="twitter:card" content="summary_large_image"/>
-  	<meta name="twitter:site" content="@Centro_Cimogsys"/>
-  	<meta name="twitter:title" content="Centro de Investigación CIMOGSYS"/>
-  	<meta name="twitter:description" content="Centro de investigación en modelos de Gestión y Sistemas Informáticos"/>
-  	<meta name="twitter:creator" content="@autor"/>
-  	<meta name="twitter:image:src" content="img/headerLogo.png"/>
+  	
     @yield('metas')
   @show
-  
+
 	<title> @yield('titulo') | CIMOGSYS</title>
-	
+
 	@section('estilos')
     {{ HTML::style('css/estilos.css'); }}
     {{ HTML::style('css/miEstilo.css'); }}

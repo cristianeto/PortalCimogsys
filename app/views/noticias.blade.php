@@ -31,7 +31,7 @@
       </div>
     </header>
     @stop
-  @section('main')   
+  @section('main')
     <main class="ed-container full">
       <div class="ed-item no-padding base movil-1-8 cuadroNoticias">
         <label class="padding-3 tituloNoticias">Noticias</label>
@@ -64,7 +64,7 @@
           </div>
         </div>
       </div>
-      
+
     </main>
 
     <div class="ed-container full noticiasDetalles">
@@ -88,6 +88,9 @@
       @endif
     </div>
   @stop
+  @section('footer')
+    <footer>@parent</footer>
+  @endsection
   <script src="js/script.js"></script>
 
 </body>
