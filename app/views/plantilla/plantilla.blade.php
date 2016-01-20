@@ -17,9 +17,6 @@
   	<meta name="geo.placename" content="Riobamba"/>
   	<meta name="geo.position" content="-1.65613;-78.6814"/>
   	<meta name="ICBM" content="-1.65613, -78.6814"/>
-  	<!--meta etiquetas sociales-->
-  	
-    @yield('metas')
   @show
 
 	<title> @yield('titulo') | CIMOGSYS</title>
@@ -62,7 +59,11 @@
           		</div>
         		</div>
       	</div>
-      	<div class="redes ed-item web-5 tablet-5 main-center"><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerFacebook.png" alt=""/></a><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerTwitter.png" alt=""/></a><a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerYoutube.png" alt=""/></a></div>
+      	<div class="redes ed-item web-5 tablet-5 main-center">
+          <a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerFacebook.png" alt=""/></a>
+          <a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerTwitter.png" alt=""/></a>
+          <a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="img/footerYoutube.png" alt=""/></a>
+        </div>
     	</footer>
 	@show
 @show

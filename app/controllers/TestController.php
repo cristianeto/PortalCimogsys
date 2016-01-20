@@ -220,13 +220,13 @@ class TestController  extends BaseController{
 		if($response == 1){
 
 			if(!is_null(Input::file('logo_centro'))){
-				$file_logo_centro->move('img',$file_logo_centro->getClientOriginalName());
 				File::delete('img/'.$file_logo_vieja);
+				$file_logo_centro->move('img',$file_logo_centro->getClientOriginalName());
 			}
 
 			if(!is_null(Input::file('img_centro'))){
-				$file_img_centro->move('img',$file_img_centro->getClientOriginalName());
 				File::delete('img/'.$file_img_vieja);
+				$file_img_centro->move('img',$file_img_centro->getClientOriginalName());
 			}
 
 			return Redirect::to(URL::previous())->with('mensaje','Centro de Investigacion Actualizado Insertado Correctamente');

@@ -11,7 +11,7 @@
   @section('header')
     <header class="ed-container full">
       <div class="ed-item web-30 tablet-35 movil-30 cross-center">
-      <a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/headerLogo.png', 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a>
+      <a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/'.$centro->logo_centro, 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a>
       </div>
       <div class="ed-item web-70 tablet-65 movil-70 main-end cross-center">
         <div class="menu">&#9776;</div>
@@ -64,9 +64,7 @@
           </div>
         </div>
       </div>
-
     </main>
-
     <div class="ed-container full noticiasDetalles">
       <div class="ed-item base">
         <hr class="lineaSeparadora">
@@ -74,12 +72,12 @@
       @if(count($noticias)>0)
         @foreach($noticias as $noticia)
           <div class="ed-item base movil-50 tablet-2-8">
-              <div class="ed-container main-center">
+              <div class="ed-container main-center noticiaIndividual">
                 <div class="ed-item no-padding imagenNoticia main-center">{{ HTML::image('img/noticia/'.$noticia->imagen_noticia, 'alt='.$noticia->imagen_noticia, array('class'=>'imagenNoticia')) }}</div>
                 <div class="ed-item no-padding main-center"><h4 class="main-center">{{$noticia->titulo_noticia}}</h4></div>
                 <div class="ed-item no-padding main-center"><p class="text-justify">{{substr($noticia->contenido_noticia, 0,200)}}...</p></div>
                 <div class="ed-item movil-50 no-padding "><strong>Publicación:</strong> {{$noticia->fecha_publicacion_noticia}}</div>
-                <div class="ed-item movil-50 no-padding cross-end main-end"><a href="#"><label for="" class=" verMas">Ver más</label></a></div>
+                <div class="ed-item movil-50 no-padding cross-end main-end"><a href="{{URL::Route('visualizarNoticia',$noticia->id_noticia)}}"><label for="" class=" verMas">Ver más</label></a></div>
               </div>
           </div>
           @endforeach

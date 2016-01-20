@@ -3,10 +3,13 @@
 @section('titulo')
  Proyectos
 @stop
+@section('body')
 <body class="proyectos">
+  @parent
+  @section('header')
   <header class="ed-container full">
     <div class="ed-item web-30 tablet-35 movil-30 cross-center">
-      <a href="{{URL::Route('inicio')}}">{{ HTML::image('img/headerLogo.png', 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a>
+      <a href="{{URL::Route('inicio')}}">{{ HTML::image('img/'.$centro->logo_centro, 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a>
     </div>
     <div class="ed-item web-70 tablet-65 movil-70 main-end cross-center">
       <div class="menu">&#9776;</div>
@@ -25,26 +28,33 @@
       </ul>
     </div>
   </header>
+@stop
+@section('main')
   <main class="ed-container full">
     <div class="ed-item">
       <h1>Proyectos</h1>
       <div class="ed-container full descripcion">
-        @if(count($proyectos)>0)
+        @if(count($proyectos)!=0)
           @foreach($proyectos as $proyecto)
             <div class="ed-item fie web-1-3 main-center"><a class="cross-center" target="_blank" href="{{$proyecto->enlace_proyectos}}">{{ HTML::image('img/'.$proyecto->imagen_min_proyectos, 'alt=logo proyecto', array('class'=>'')) }}</a>
               <p> {{ $proyecto->descripcion_proyectos }}</p>
             </div>
-            
+
             @endforeach
             <div class="ed-item fie web-1-3 main-center"><a target="_blank" href="#">Revista Científica (Normas de publicación de la Revista.)</a>
               <p>
-              Documento descargable. Clic aquí para descargar...!
+              Documento descargable. Clic {{ link_to_asset('img/noticia/'.$noticia->imagen_noticia, $title='Informe archivo '.$noticia->id_noticia, $attributes = array('download'=>$noticia->imagen_noticia));}} para descargar...!
               </p>
             </div>
           @endif
-            
+
       </div>
     </div>
   </main>
+@stop
   <script src="js/script.js"></script>
+  @section('footer')
+    @parent
+  @stop
 </body>
+@stop

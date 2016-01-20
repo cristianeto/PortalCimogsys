@@ -10,7 +10,7 @@
   @parent
   @section('header')
 <header class="ed-container full">
-    <div class="ed-item web-30 tablet-35 movil-30 cross-center"><a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/headerLogo.png', 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a></div>
+    <div class="ed-item web-30 tablet-35 movil-30 cross-center"><a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/'.$centro->logo_centro, 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a></div>
     <div class="ed-item web-70 tablet-65 movil-70 main-end cross-center">
       <div class="menu">&#9776;</div>
       <ul class="ed-menu web-horizontal tablet-horizontal">

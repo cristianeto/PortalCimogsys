@@ -1,18 +1,31 @@
-@extends('plantilla.plantilla')
-@section('metas')
-@parent
-<!-- You can use Open Graph tags to customize link previews.
-    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-	<meta property="og:url"           content="http://cimogsys.com/public/visualizarNoticia" />
-	<meta property="og:type"          content="cimogsys.com" />
-	<meta property="og:title"         content="{{$noticia->titulo_noticia}}" />
-	<meta property="og:description"   content="{{substr($noticia->contenido_noticia,0,10)}}" />
-	<meta property="og:image"         content="img/noticia/{{$noticia->imagen_noticia}}" />
-@stop
-@section('titulo')
- Noticias
-@stop
-@section('body')
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<!--meta etiquetas-->
+  	<meta charset="UTF-8"/>
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+		<!--meta etiquetas sociales-->
+		<!--Google-->
+		<meta itemprop="name" content="Centro de Investigación CIMOGSYS"/>
+		<meta itemprop="description" content="Centro de investigación en modelos de Gestión y Sistemas Informáticos"/> <meta itemprop="image" content="img/headerLogo.png"/>
+		<meta itemprop="author" content="CIMOGSYS"/>
+		<!--Open Graph data (Facebook)-->
+		<meta property="og:url"           content="{{Request::url()}}" />
+		<meta property="og:type"          content="article" />
+		<meta property="og:title"         content="{{$noticia->titulo_noticia}}" />
+		<meta property="og:description"   content="{{substr($noticia->contenido_noticia,0,100)}}" />
+		<meta property="og:image"         content="http://cimogsys.com/img/noticia/{{$noticia->imagen_noticia}}" />
+		<meta property="og:site_name" 		content="Cimogsys">
+
+	<title> Noticia | CIMOGSYS</title>
+
+    {{ HTML::style('css/estilos.css'); }}
+    {{ HTML::style('css/miEstilo.css'); }}
+    {{ HTML::style('fonts/font-awesome-4.5.0/css/font-awesome.min.css'); }}
+		{{ HTML::script('js/jquery.js'); }}
+		{{ HTML::script('js/script.js'); }}
+</head>
 <body class=" visualizarNoticia">
   <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -24,11 +37,9 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-@parent
-  @section('header')
     <header class="ed-container full">
       <div class="ed-item web-30 tablet-35 movil-30 cross-center">
-      <a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/headerLogo.png', 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a>
+      <a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/'.$centro->logo_centro, 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a>
       </div>
       <div class="ed-item web-70 tablet-65 movil-70 main-end cross-center">
         <div class="menu">&#9776;</div>
@@ -47,8 +58,6 @@
         </ul>
       </div>
     </header>
-    @stop
-  @section('main')
     <main class="ed-container full noticiasDetalles">
       <div class="ed-item no-padding base cuadroNoticias">
         <label class="padding-3 tituloNoticias">Noticias</label>
@@ -69,7 +78,7 @@
             <strong>Enlace a esta noticia: </strong>{{$noticia->enlace_noticia}}
           </div>
           <div class="ed-item base main-end">
-            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+            <div class="fb-share-button" data-href="{{Request::url()}}" data-layout="button_count"></div>
           </div>
         </div>
       </div>
@@ -85,10 +94,37 @@
         </div>
       </div>
     </main>
-  @stop
-  <script src="js/script.js"></script>
-  @section('footer')
-    @parent
-  @stop
+	<footer class="ed-container full">
+			<div class="logos ed-item web-25 tablet-100 cross-center">
+					<div class="ed-container">
+						<div class="ed-item web-1-3 movil-1-3"><a href="http://www.espoch.edu.ec" target="blank"><img src="../img/footerEspoch.png" alt="Espoch" class="cross-center"/></a></div>
+						<div class="ed-item web-1-3 movil-1-3"><a href="http://fade.espoch.edu.ec" target="blank"><img src="../img/footerFade.png" alt="Espoch" class="cross-center"/></a></div>
+						<div class="ed-item web-1-3 movil-1-3"><a href="http://fie.espoch.edu.ec" target="blank"><img src="../img/footerFie.png" alt="Espoch" class="cross-center"/></a></div>
+					</div>
+			</div>
+			<div class="informacion ed-item web-70 tablet-95 cross-center">
+					<div class="ed-container">
+						<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
+								<p>{{ $centro->descripcion_centro}}</p>
+						</div>
+						<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
+								<p>Dirección: {{ $centro->direccion_centro }} </p>
+								<p>TELF:{{ $centro->telefono_centro }}</p>
+								<p>Código Postal: {{$centro->codigo_postal_centro}}</p>
+						</div>
+						<div class="ed-item web-1-3 tablet-1-3 movil-100 cross-center">
+								<p>Términos de Uso | Políticas de Privacidad</p>
+								<p>Acerca de | Créditos | Acceso | <a href="{{URL::Route('iniciarSesion')}}">Iniciar Sesión</a> </p>
+						</div>
+					</div>
+			</div>
+			<div class="redes ed-item web-5 tablet-5 main-center">
+				<a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="../img/footerFacebook.png" alt=""/></a>
+				<a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="../img/footerTwitter.png" alt=""/></a>
+				<a href="http://www.facebook.com" target="blank" class="cross-center tablet-100 movil-1-3 main-center"><img src="../img/footerYoutube.png" alt=""/></a>
+			</div>
+		</footer>
+  <script src="../js/script.js"></script>
+
 </body>
-@stop
+</html>

@@ -36,14 +36,16 @@ class NoticiaController  extends BaseController{
 		}
 	}
 
-	public function visualizarNoticia(){
+	public function visualizarNoticia($id_noticia){
 		$response = 0;
 		$response = Centro::buscar_centro(3);
 		if(count($response)!=0){
-				$noticia = Noticia::buscar_noticia(16); // debe cambiarse por una variable
+				$noticia = Noticia::buscar_noticia($id_noticia); // debe cambiarse por una variable
 				if(count($noticia)!=0){
+					//return json_encode($noticia);
 					return View::make('visualizarNoticia')->withNoticia($noticia)->withCentro($response);
 				}else{
+					//return json_encode($noticia);
 					return View::make('visualizarNoticia')->withError('No es una noticia vaálida');
 				}
 

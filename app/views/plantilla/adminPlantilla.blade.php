@@ -55,7 +55,7 @@
 	@yield('header')
 	@yield('main')
 	@section('footer')
-  
+
 	@show
 @show
 </html>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * @Author: Cristianeto
 *
@@ -6,7 +6,7 @@
 class Noticia extends Eloquent
 {
 	protected $table = 'noticia';
-	public $timestamps = false; 
+	public $timestamps = false;
 	protected $fillable = array('id_noticia','titulo_noticia','contenido_noticia','fecha_publicacion_noticia','fecha_actualizacion_noticia', 'enlace_noticia', 'area_gestion_notica','imagen_noticia');
 
 	public static function codigo_nuevo_noticia(){
@@ -45,13 +45,13 @@ class Noticia extends Eloquent
 	public static function listar_noticias($opcion,$area_gestion_notica){
 		switch ($opcion) {
 			case 1:
-				//listar todos 
+				//listar todos
 				$response = DB::table('noticia')
 							->where('area_gestion_notica',$area_gestion_notica)
 							->get();
 				break;
 			case 2:
-				//listar todos ascendente 
+				//listar todos ascendente
 				$response = DB::table('noticia')
 							->where('area_gestion_notica',$area_gestion_notica)
 							->orderBy('id_noticia','asc')
@@ -74,12 +74,12 @@ class Noticia extends Eloquent
 	public static function listar_noticias_todas($opcion){
 		switch ($opcion) {
 			case 1:
-				//listar todos 
+				//listar todos
 				$response = DB::table('noticia')
 							->get();
 				break;
 			case 2:
-				//listar todos ascendente 
+				//listar todos ascendente
 				$response = DB::table('noticia')
 							->orderBy('id_noticia','asc')
 							->get();
@@ -87,6 +87,7 @@ class Noticia extends Eloquent
 			case 3:
 				//listar todos descendente
 				$response = DB::table('noticia')
+							
 							->orderBy('fecha_publicacion_noticia','desc')
 							->get();
 				break;
@@ -108,6 +109,6 @@ class Noticia extends Eloquent
 				'area_gestion_notica'=>$area_gestion_notica,
 				'imagen_noticia'=>$imagen_noticia
 	        	));
-	    return $response; 
+	    return $response;
 	}
 }

@@ -4,7 +4,7 @@
 @stop
 <body class="objetivos">
   <header class="ed-container full">
-    <div class="ed-item web-30 tablet-35 movil-30 cross-center"><a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/headerLogo.png', 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a></div>
+    <div class="ed-item web-30 tablet-35 movil-30 cross-center"><a href="{{ URL::Route('inicio')}}">{{ HTML::image('img/'.$centro->logo_centro, 'alt=logo centro CIMOGSYS', array( 'class' => 'logo' )) }}</a></div>
     <div class="ed-item web-70 tablet-65 movil-70 main-end cross-center">
       <div class="menu">&#9776;</div>
       <ul class="ed-menu web-horizontal tablet-horizontal">
@@ -22,7 +22,7 @@
       </ul>
     </div>
   </header>
-  <main class="ed-container full">			
+  <main class="ed-container full">
     <article id="pag1" class="ed-item">
       <div class="noticia"><span>Objetivos</span>
         <div class="ed-container full">
@@ -37,12 +37,12 @@
                 @endforeach
               @else
                   <li>* No existen objetivos</li>
-              @endif              
+              @endif
             </ul>
           </div>
           <div class="ed-item tablet-50">
             <ul>
-              
+
             </ul>
           </div>
         </div>

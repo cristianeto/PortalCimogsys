@@ -2946,7 +2946,13 @@ footer .redes img {
 
 @media screen and (min-width: 768px) {
   .home > main {
-    height: 28em;
+    height: 29em;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .home > main {
+    height: 43.5em;
     overflow: hidden;
   }
 }
@@ -2974,7 +2980,12 @@ footer .redes img {
 
 @media screen and (min-width: 480px) {
   .home > main ul li {
-    height: 28em;
+    height: 30em;
+  }
+}
+@media screen and (min-width: 1820px) {
+  .home > main ul li {
+    height: 44em;
   }
 }
 
@@ -3033,7 +3044,7 @@ footer .redes img {
 
 @media screen and (min-width: 768px) {
   .misionVision > main {
-    height: 28em;
+    height: 29em;
     overflow: hidden;
   }
 }
@@ -3320,7 +3331,7 @@ footer .redes img {
 
 @media screen and (min-width: 1024px) {
   .proyectos > main {
-    height: 28em;
+    min-height: 31em;
     overflow: hidden;
   }
 }
