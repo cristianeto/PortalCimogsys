@@ -41,9 +41,9 @@
             </div>
 
             @endforeach
-            <div class="ed-item fie web-1-3 main-center"><a target="_blank" href="#">Revista Científica (Normas de publicación de la Revista.)</a>
+            <div id="normas" class="ed-item fie web-1-3 main-center"><a href="">Normas de publicación de la Revista.</a>
               <p>
-              Documento descargable. Clic {{ link_to_asset('img/noticia/'.$noticia->imagen_noticia, $title='Informe archivo '.$noticia->id_noticia, $attributes = array('download'=>$noticia->imagen_noticia));}} para descargar...!
+              Para descargar el documento con las políticas de publicación de nuestra revista dar clic {{ link_to_asset('img/noticia/'.$noticia->imagen_noticia, $title='aquí', $attributes = array('download'=>$noticia->imagen_noticia));}} ...!
               </p>
             </div>
           @endif

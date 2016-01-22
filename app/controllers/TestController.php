@@ -886,8 +886,6 @@ public function guardarNoticia(){
 			$imagen_noticia_nombre = $noticia->imagen_noticia;
 		}
 
-		//echo $id." ".$descripcion." ".$centro." ".$tipo;
-
 		$response = Centro::buscar_centro($centro);
 		if(count($response)==1){
 			$response = 0;

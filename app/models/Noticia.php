@@ -76,18 +76,20 @@ class Noticia extends Eloquent
 			case 1:
 				//listar todos
 				$response = DB::table('noticia')
+							->where('id_noticia','!=','17')
 							->get();
 				break;
 			case 2:
 				//listar todos ascendente
 				$response = DB::table('noticia')
+							->where('id_noticia','!=','17')
 							->orderBy('id_noticia','asc')
 							->get();
 				break;
 			case 3:
 				//listar todos descendente
 				$response = DB::table('noticia')
-							
+							->where('id_noticia','!=','17')
 							->orderBy('fecha_publicacion_noticia','desc')
 							->get();
 				break;

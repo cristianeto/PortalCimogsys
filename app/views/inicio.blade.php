@@ -1,7 +1,6 @@
 @extends('plantilla.plantilla')
 @section('metas')
-@parent
-
+  @parent
 @stop
 @section('titulo')
  Inicio
@@ -58,7 +57,7 @@
             <img src="img/arrow-left.png" class="prev"/>
             <div class="ed-container ">
               <div class="ed-item base movil-1-6 cross-center main-center car">
-                  <img class="logoBanner" src="img/PORTADAS-PAGINA/logo_FIE_blancoNegro.png" alt="logo_fade">
+                  <img class="logoBanner" src="img/PORTADAS-PAGINA/Logo_FIE_blancoNegro.png" alt="logo_fade">
               </div>
               <div class="ed-item base movil-4-6 car">
                 <div class="padding-2">

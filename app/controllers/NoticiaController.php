@@ -35,12 +35,11 @@ class NoticiaController  extends BaseController{
 			return View::make('pruebas.noticia')->with('error','No existe un centro de investigación para visualizar noticias');
 		}
 	}
-
 	public function visualizarNoticia($id_noticia){
 		$response = 0;
 		$response = Centro::buscar_centro(3);
 		if(count($response)!=0){
-				$noticia = Noticia::buscar_noticia($id_noticia); // debe cambiarse por una variable
+				$noticia = Noticia::buscar_noticia($id_noticia);
 				if(count($noticia)!=0){
 					//return json_encode($noticia);
 					return View::make('visualizarNoticia')->withNoticia($noticia)->withCentro($response);

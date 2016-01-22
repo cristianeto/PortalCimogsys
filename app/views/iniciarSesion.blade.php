@@ -1,6 +1,6 @@
 @extends('plantilla.plantilla')
 @section('metas')
-@parent
+ @parent
 @stop
 @section('titulo')
   Iniciar Sesión
@@ -63,6 +63,9 @@
 			</div>
 		</div>
 	</main>
+  @stop
+  @section('footer')
+    @parent
   @stop
 </body>
 @stop
